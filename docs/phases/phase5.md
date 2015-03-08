@@ -4,8 +4,8 @@
 ### Models
 
 ### Controllers
-Api::BlogsController (search)
-Api::PostsController (search)
+Api::UserController (search)
+Api::ScreenshotController (search)
 
 ### Views
 
@@ -15,8 +15,7 @@ Api::PostsController (search)
 ### Collections
 
 ### Views
-* BlogSearchItem
-* SearchShow (composite view, contains BlogsIndex and PostsIndex subviews)
+* SearchShow (composite view, contains UserIndex and ScreenshotIndex subviews)
 
 ## Gems/Libraries
 

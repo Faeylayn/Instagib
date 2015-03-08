@@ -1,11 +1,13 @@
-# Phase 3: Editing and Displaying Posts
+# Phase 4: Uploading Screenshots
 
 ## Rails
 ### Models
 
 ### Controllers
 
+
 ### Views
+
 
 ## Backbone
 ### Models
@@ -13,9 +15,8 @@
 ### Collections
 
 ### Views
-* PostForm
+
 
 ## Gems/Libraries
-* Filepicker
-* Markdown-js
-* Bootstrap Markdown
+* paperclip
+* imagemagick

@@ -14,7 +14,6 @@ Instagib is an Instgram clone for videogame Screenshots. Users can:
 - [ ] Create Screenshots
 - [ ] Create albums
 - [ ] View albums and screenshots
-- [ ] Friend users
 - [ ] Comment on Screenshots and other comments
 - [ ] Tag screenshots genres and game
 - [ ] Search for users by username
@@ -72,8 +71,9 @@ collections, but they will fetch from the new `search` routes.
 
 [Details][phase-five]
 
-### Phase 6: Tagging Screenshots (~1 days)
-
+### Phase 6: Tagging Screenshots (~1-2 days)
+I will add on genre taggings and tag tables and game taggings and tag tables so that users 
+can add multiple tags to screenshots.
 
 [Details][phase-six]
 
@@ -82,15 +82,15 @@ collections, but they will fetch from the new `search` routes.
 - [ ] Browse screenshots by tag
 - [ ] Pagination/infinite scroll
 - [ ] Notifications
-- [ ] 
-- [ ] 
 - [ ] Multiple sessions/session management
 - [ ] User avatars
 - [ ] Typeahead search bar
+- [ ] Friend users
 
 [phase-one]: ./docs/phases/phase1.md
 [phase-two]: ./docs/phases/phase2.md
 [phase-three]: ./docs/phases/phase3.md
 [phase-four]: ./docs/phases/phase4.md
 [phase-five]: ./docs/phases/phase5.md
+[phase-six]: ./docs/phases/phase6.md
 
