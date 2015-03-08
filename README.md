@@ -2,7 +2,7 @@
 
 [Heroku link][heroku]
 
-[heroku]: 
+[heroku]: https://instagib.herokuapp.com/
 
 ## Minimum Viable Product
 Instagib is an Instgram clone for videogame Screenshots. Users can:
