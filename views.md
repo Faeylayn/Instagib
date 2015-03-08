@@ -31,7 +31,7 @@
 ![album-index]
 
 ## Album Show
-![search-page]
+![album-show]
 
 ## Screenshot Index 
 ![screenshot-index]
@@ -40,7 +40,7 @@
 [homepage]: ./wireframes/Homepage.png.png
 [screenshot-show]: ./wireframes/Screenshot_show.png.png
 [user-show]: ./wireframes/User_show.png.png
-[new-comment-form]: ./wireframes/Comment_newform.png.png
+[new-comment-form]: ./wireframes/Comment-newform.png.png
 [search-page]: ./wireframes/Search_form.png.png
 [friend-index]: ./wireframes/friend_index.png.png
 [new-screenshot-form]: ./wireframes/New_screenshot_form.png.png
