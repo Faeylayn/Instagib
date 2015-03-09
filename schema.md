@@ -7,6 +7,8 @@ id          | integer   | not null, primary key
 owner_id    | integer   | not null, foreign key (references users)
 album_id    | integer   | foreign key (references albums, can be null)
 title       | string    | not null
+image       | image     |
+image_url   | string    |
 
 ## albums
 column name | data type | details
