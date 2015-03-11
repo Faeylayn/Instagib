@@ -9,9 +9,9 @@ Instagib is an Instgram clone for videogame Screenshots. Users can:
 
 <!-- This is a Markdown checklist. Use it to keep track of your progress! -->
 
-- [ ] Create accounts
-- [ ] Create sessions (log in)
-- [ ] Create Screenshots
+- [X] Create accounts
+- [X] Create sessions (log in)
+- [X] Create Screenshots
 - [ ] Create albums
 - [ ] View albums and screenshots
 - [ ] Comment on Screenshots and other comments
@@ -32,8 +32,8 @@ Instagib is an Instgram clone for videogame Screenshots. Users can:
 ### Phase 1: User Authentication and Create Screenshots(~1 day)
 I will implement user authentication in Rails based on the practices learned at
 App Academy. By the end of this phase, users will be able to create screenshots using
-a simple text form in a Rails view and grabbing an image from a url. The most important 
-part of this phase will be pushing the app to Heroku and ensuring that everything 
+a simple text form in a Rails view and grabbing an image from a url. The most important
+part of this phase will be pushing the app to Heroku and ensuring that everything
 works before moving on to phase 2.
 
 [Details][phase-one]
@@ -48,9 +48,9 @@ and albums, all inside a single Backbone app.
 
 ### Phase 3: Commenting (~1 day)
 I will add the comment form to the screenshot show page, and have it appear when the
-"add comment" button is clicked. The form will post without refreshing the page and add 
-the comment to the displayed comments. There will also be a reply button/link that will 
-bring up a new comment form for child comments using the adjacency model. By the end of 
+"add comment" button is clicked. The form will post without refreshing the page and add
+the comment to the displayed comments. There will also be a reply button/link that will
+bring up a new comment form for child comments using the adjacency model. By the end of
 the day users will be able to add and view comments and owners will be able to delete their
 comment (but not the children).
 
@@ -58,7 +58,7 @@ comment (but not the children).
 
 ### Phase 4: Uploading Screenshots (~1-2 days)
 I'll be looking into using paperclip and imagemagick gems to implement a screenshot uploader
-so users can upload a screenshot from their own computer. I expect this to take longer than 
+so users can upload a screenshot from their own computer. I expect this to take longer than
 most of the other phases.
 
 [Details][phase-four]
@@ -72,7 +72,7 @@ collections, but they will fetch from the new `search` routes.
 [Details][phase-five]
 
 ### Phase 6: Tagging Screenshots (~1-2 days)
-I will add on genre taggings and tag tables and game taggings and tag tables so that users 
+I will add on genre taggings and tag tables and game taggings and tag tables so that users
 can add multiple tags to screenshots.
 
 [Details][phase-six]
@@ -93,4 +93,3 @@ can add multiple tags to screenshots.
 [phase-four]: ./docs/phases/phase4.md
 [phase-five]: ./docs/phases/phase5.md
 [phase-six]: ./docs/phases/phase6.md
-

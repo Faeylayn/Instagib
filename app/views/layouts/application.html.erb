@@ -1,12 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Instagramclone</title>
+  <title>InstaGib</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+ <% if current_user %>
+You are signed in as <%= current_user.username %>
+<form action="<%= session_url %>" method="post">
+  <input type="hidden" name="_method" value="delete">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type="submit" name="logout" value="Logout">
+</form>
+  <% else %>
+
+  <a href="<%= new_session_url %>">Login</a>
+
+ <% end %>
 
 <%= yield %>
 
