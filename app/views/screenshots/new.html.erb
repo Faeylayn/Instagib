@@ -1,0 +1,16 @@
+<h1>Submit a new screenshot</h1>
+
+<form action="<%= screenshots_url %>" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+  <label>Title
+    <input type="text" name="screenshot[title]" value="<%= @image.title %>">
+  </label>
+
+  <label>URL
+    <input type="text" name="screenshot[image_url]" value="<%= @image.image_url %>">
+  </label>
+
+  <input type="submit" name="Submit">
+
+</form>
