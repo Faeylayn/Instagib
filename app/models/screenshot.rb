@@ -1,3 +1,3 @@
-class Picture < ActiveRecord::Base
+class Screenshot < ActiveRecord::Base
 
 end

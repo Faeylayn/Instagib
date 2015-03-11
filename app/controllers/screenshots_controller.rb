@@ -1,4 +1,4 @@
-class PicturesController < ApplicationController
+class ScreenshotsController < ApplicationController
     def show
 
     end
