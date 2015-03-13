@@ -22,12 +22,13 @@ class Api::ScreenshotsController < ApplicationController
 
     end
 
-    def edit
-
-    end
-
     def update
-
+      @screenshot = Screenshot.find(params[:id])
+      if @screenshot.update(screenshot_params)
+        render :show
+      # else
+      #   render :json {@screenshot.errors.full_messages}
+      end
     end
 
     def destroy
@@ -36,6 +37,6 @@ class Api::ScreenshotsController < ApplicationController
 
     private
     def screenshot_params
-      params.require(:screenshot).permit(:title, :image_url)
+      params.require(:screenshot).permit(:title, :image_url, :album_id)
     end
 end

@@ -13,3 +13,7 @@
  *= require_tree .
  *= require_self
  */
+
+.album-ss {
+  height: 300px;
+}

@@ -1,7 +1,13 @@
 Instagib.Views.AlbumShow = Backbone.View.extend({
 
   events: {
-    "click .add-ss": "AddToAlbum"
+    "click .add-ss": "AddToAlbum",
+    "click .submit-add": "AddtheSS",
+    "click .remove-ss": "removeSS"
+  },
+
+  initialize: function () {
+    this.listenTo(this.model.screenshots(), "add remove", this.render)
   },
 
   render: function () {
@@ -22,6 +28,37 @@ Instagib.Views.AlbumShow = Backbone.View.extend({
     this._addSS.render()
     setTimeout(function () {this.$el.append(this._addSS.$el)}.bind(this), 0)
   },
+
+  AddtheSS: function (event) {
+    event.preventDefault()
+    var $form = $(".add-more-ss")
+    var new_ids = $form.find(".added-ss:checked")
+    for (var i = 0; i < new_ids.length; i++) {
+      var new_ss = new Instagib.Models.Screenshot({
+        id: $(new_ids[i]).val(),
+        album_id: this.model.id,
+        })
+      new_ss.save({}, {
+        success: function () {
+          this.model.screenshots().add(new_ss)
+        }.bind(this)
+      })
+    }
+  },
+
+  removeSS: function (event) {
+    event.preventDefault()
+
+    var remove_ss = new Instagib.Models.Screenshot({id: $(event.target).data("id")})
+    remove_ss.fetch({
+      success: function () {
+        remove_ss.set({album_id: null});
+        remove_ss.save({}, {
+          success: function () {this.model.screenshots().remove(remove_ss)}.bind(this)
+        })
+      }.bind(this)
+    })
+  }
 
 
 })

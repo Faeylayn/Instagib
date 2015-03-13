@@ -12,7 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
+//= require jquery.serializeJSON
 //= require underscore
 //= require backbone
 //= require instagramclone
