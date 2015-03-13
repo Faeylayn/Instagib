@@ -89,6 +89,8 @@ can add multiple tags to screenshots.
 - [ ] Typeahead search bar
 - [ ] Friend users
 - [ ] Feed homepage
+- [ ] Adding Game pages?
+
 
 [phase-one]: ./docs/phases/phase1.md
 [phase-two]: ./docs/phases/phase2.md
