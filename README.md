@@ -88,6 +88,7 @@ can add multiple tags to screenshots.
 - [ ] User avatars
 - [ ] Typeahead search bar
 - [ ] Friend users
+- [ ] Feed homepage
 
 [phase-one]: ./docs/phases/phase1.md
 [phase-two]: ./docs/phases/phase2.md
