@@ -8,10 +8,17 @@ Instagib.Router = Backbone.Router.extend({
 
   ScreenshotShow: function (id) {
     var ss = new Instagib.Models.Screenshot({id: id})
-    this._screenshotShow = new Instagib.Views.ScreenshotShow({
-      model: ss
+    ss.fetch({
+      success: function() {
+        this._screenshotShow = new Instagib.Views.ScreenshotShow({
+          model: ss
+        })
+        this._screenshotShow.render()
+        $(".display").html(this._screenshotShow.$el)
+      }.bind(this)
+
     })
-    this._screenshotShow.render()
+
   }
 
 })
