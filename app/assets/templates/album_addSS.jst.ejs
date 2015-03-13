@@ -1,0 +1,11 @@
+<form class="add-more-ss">
+  <% album.other_ss().each(function(screenshot){ %>
+    <% if (screenshot.get("album_id") === null) {%>
+        <input type="checkbox" name="added-ss[]" label="<%= screenshot.escape("title") %>" value="<%= screenshot.get("id") %>"><%= screenshot.escape("title") %>
+        <br>
+        <img src="<%= screenshot.escape("image_url") %>" style="height: 100px; width: 100p;" />
+        <br>
+      <% } %>
+  <%  }) %>
+  <input class="submit-add" type="sumbit" name="Submit" value="Add These Screenshots">
+</form>

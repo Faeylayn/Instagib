@@ -13,8 +13,14 @@ Instagib.Views.AlbumShow = Backbone.View.extend({
     });
   },
 
-  AddToAlbum: function () {
-    this._addSS = null
+  AddToAlbum: function (event) {
+    event.preventDefault()
+    this._addSS = new Instagib.Views.AlbumAddSS({
+      model: this.model,
+      collection: this.model.other_ss()
+    })
+    this._addSS.render()
+    setTimeout(function () {this.$el.append(this._addSS.$el)}.bind(this), 0)
   },
 
 

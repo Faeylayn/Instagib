@@ -6,6 +6,20 @@ class User < ActiveRecord::Base
 
   before_validation :ensure_session_token
 
+  has_many(
+  :albums,
+  class_name: "Album",
+  primary_key: :id,
+  foreign_key: :owner_id
+  )
+
+  has_many(
+  :screenshots,
+  class_name: "Screenshot",
+  primary_key: :id,
+  foreign_key: :owner_id
+  )
+
   def self.find_by_credentials(username, password)
     user = User.find_by(:username => username)
     if user

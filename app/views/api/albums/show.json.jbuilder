@@ -11,3 +11,9 @@ json.screenshots do
   end
 
 end
+
+json.owners_stuff do
+  json.array! @album.owner.screenshots do |screenshot|
+    json.extract!(screenshot, :title, :image_url, :id, :album_id)
+  end
+end
