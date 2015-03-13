@@ -4,7 +4,8 @@ window.Instagib = {
   Views: {},
   Routers: {},
   initialize: function() {
-    new Instagib.Router()
+    new Instagib.Router();
+    Backbone.history.start();
   }
 };
 

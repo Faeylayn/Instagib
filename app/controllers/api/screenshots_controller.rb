@@ -1,6 +1,6 @@
-class ScreenshotsController < ApplicationController
+class Api::ScreenshotsController < ApplicationController
     def show
-      @image = Screenshot.find(params[:id])
+      @screenshot = Screenshot.find(params[:id])
     end
 
     def index
@@ -15,7 +15,7 @@ class ScreenshotsController < ApplicationController
       @image = Screenshot.new(screenshot_params)
       @image.owner_id = current_user.id
       if @image.save
-        redirect_to screenshot_url(@image)
+        redirect_to api_screenshot_url(@image)
       else
         render :new
       end
