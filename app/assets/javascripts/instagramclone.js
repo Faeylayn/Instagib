@@ -4,7 +4,7 @@ window.Instagib = {
   Views: {},
   Routers: {},
   initialize: function() {
-    alert('Hello from Backbone!');
+    new Instagib.Router()
   }
 };
 
