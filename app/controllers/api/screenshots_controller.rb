@@ -17,7 +17,7 @@ class Api::ScreenshotsController < ApplicationController
       if @screenshot.save
         render :show
       else
-        render :new
+        render :json {@screenshot.errors.full_messages}
       end
 
     end

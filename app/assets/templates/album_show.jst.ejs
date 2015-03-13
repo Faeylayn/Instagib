@@ -1,0 +1,13 @@
+
+
+<h1> <%= album.escape("title") %> </h1>
+
+<% album.screenshots().each(function (screenshot) { %>
+
+  <span> <%= screenshot.escape("title") %> </span>
+
+
+  <img src="<%= screenshot.escape("image_url") %>" alt="" />
+
+
+<% }.bind(album)) %>

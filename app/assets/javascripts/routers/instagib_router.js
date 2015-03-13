@@ -3,7 +3,9 @@ Instagib.Router = Backbone.Router.extend({
   routes: {
     "screenshots/new": "ScreenshotForm",
     "screenshots/:id": "ScreenshotShow",
-
+    "albums/new": "AlbumForm",
+    "albums/:id": "AlbumShow",
+    "users/:id/albums": "albumsIndex"
   },
 
   ScreenshotShow: function (id) {
@@ -18,17 +20,44 @@ Instagib.Router = Backbone.Router.extend({
       }.bind(this)
 
     })
-
+    this._SwapView(this._screenshotShow)
   },
 
-  ScreenshotForm: function (id) {
-
-
+  ScreenshotForm: function () {
     this._screenshotForm = new Instagib.Views.ScreenshotForm()
     this._screenshotForm.render()
     $(".display").html(this._screenshotForm.$el)
+    this._SwapView(this._screenshotForm)
+  },
 
+  AlbumForm: function () {
+    this._albumForm = new Instagib.Views.AlbumForm()
+    this._albumForm.render()
+    $(".display").html(this._albumForm.$el)
+    this._SwapView(this._albumForm)
+  },
+
+  AlbumShow: function (id) {
+    var album = new Instagib.Models.Album({id: id})
+    album.fetch({
+      success: function() {
+        this._albumShow = new Instagib.Views.AlbumShow({
+          model: album
+        })
+        this._albumShow.render()
+        $(".display").html(this._albumShow.$el)
+      }.bind(this)
+
+    })
+    this._SwapView(this._screenshotShow)
+  },
+
+
+  _SwapView: function (newView) {
+    if (this.currentView) {
+      this.currentView.remove();
+    };
+    this.currentView = newView;
   }
-
 
 })
