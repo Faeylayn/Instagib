@@ -12,10 +12,10 @@ class Api::ScreenshotsController < ApplicationController
     end
 
     def create
-      @image = Screenshot.new(screenshot_params)
-      @image.owner_id = current_user.id
-      if @image.save
-        redirect_to api_screenshot_url(@image)
+      @screenshot = Screenshot.new(screenshot_params)
+      @screenshot.owner_id = current_user.id
+      if @screenshot.save
+        render :show
       else
         render :new
       end

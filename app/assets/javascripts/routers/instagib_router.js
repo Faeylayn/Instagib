@@ -19,6 +19,16 @@ Instagib.Router = Backbone.Router.extend({
 
     })
 
+  },
+
+  ScreenshotForm: function (id) {
+
+
+    this._screenshotForm = new Instagib.Views.ScreenshotForm()
+    this._screenshotForm.render()
+    $(".display").html(this._screenshotForm.$el)
+
   }
+
 
 })
