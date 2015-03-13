@@ -16,8 +16,8 @@ class Api::ScreenshotsController < ApplicationController
       @screenshot.owner_id = current_user.id
       if @screenshot.save
         render :show
-      else
-        render :json {@screenshot.errors.full_messages}
+      # else
+      #   render :json {@screenshot.errors.full_messages}
       end
 
     end

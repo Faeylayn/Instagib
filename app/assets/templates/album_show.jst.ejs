@@ -11,3 +11,8 @@
 
 
 <% }.bind(album)) %>
+<br>
+<br>
+<% if (Instagib.current_user_id === album.get("owner_id")) {%>
+<a class="add-ss" href="#">Add screenshots to this album</a>
+<% } %>

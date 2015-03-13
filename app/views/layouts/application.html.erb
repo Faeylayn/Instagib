@@ -8,6 +8,9 @@
 </head>
 <body>
  <% if current_user %>
+ <script>
+   Instagib.current_user_id = <%= current_user.id %>
+ </script>
 You are signed in as <%= current_user.username %>
 <form action="<%= session_url %>" method="post">
   <input type="hidden" name="_method" value="delete">
@@ -15,7 +18,9 @@ You are signed in as <%= current_user.username %>
   <input type="submit" name="logout" value="Logout">
 </form>
   <% else %>
-
+  <script>
+    Instagib.current_user_id = null
+  </script>
   <a href="<%= new_session_url %>">Login</a>
 
  <% end %>

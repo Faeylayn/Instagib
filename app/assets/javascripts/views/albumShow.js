@@ -1,5 +1,9 @@
 Instagib.Views.AlbumShow = Backbone.View.extend({
 
+  events: {
+    "click .add-ss": "AddToAlbum"
+  },
+
   render: function () {
     this.$el.empty();
     this.model.fetch({
@@ -9,6 +13,9 @@ Instagib.Views.AlbumShow = Backbone.View.extend({
     });
   },
 
+  AddToAlbum: function () {
+    this._addSS = null
+  },
 
 
 })
