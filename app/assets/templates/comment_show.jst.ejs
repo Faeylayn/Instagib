@@ -1,0 +1,17 @@
+<li><%=comment.escape("content")%>
+  <br>
+  Author: <%= comment.get("author").username %>
+  <% if (Instagib.current_user_id) { %>
+  <button class="reply-comment" data-id="<%= comment.get("id") %>">Reply to Comment</button>
+  <% } %>
+</li>
+
+<ul class="child-comments" id="<%= comment.get("id") %>">
+  <% comment.children().each(function (commentChild) { %>
+
+
+      <%= JST.comment_show({comment: commentChild}) %>
+
+
+  <% }) %>
+</ul>

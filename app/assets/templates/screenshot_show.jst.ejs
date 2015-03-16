@@ -2,15 +2,19 @@
 
 
 <img src="<%= screenshot.escape("image_url") %>" alt="" />
-
+<br>
+<% if (Instagib.current_user_id) { %>
+<button class="add-comment">Add a new Comment</button>
+<% } %>
 <ul class="comments">
+  <h1>Comments!</h1>
+
+<% screenshot.topLevelComments().each(function (topComment) { %>
 
 
-<% screenshot.topLevelComments().each(function (comment) { %>
-  <h1>HELLO!</h1>
-  <script>
-    $(".comments").append(JST.comments())
-  </script>
+
+    <%=JST.comment_show({comment: topComment})%>
+
 
 <% }) %>
 </ul>

@@ -1,5 +1,5 @@
 Instagib.Models.Comment = Backbone.Model.extend({
-  urlRoot: "api/comment",
+  urlRoot: "api/comments",
 
   children: function () {
     if (!this._children) {
