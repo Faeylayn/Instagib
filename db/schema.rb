@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150316131123) do
+ActiveRecord::Schema.define(version: 20150316174928) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,24 +37,32 @@ ActiveRecord::Schema.define(version: 20150316131123) do
   add_index "comments", ["ss_id"], name: "index_comments_on_ss_id", using: :btree
 
   create_table "screenshots", force: true do |t|
-    t.string   "title",      null: false
-    t.integer  "owner_id",   null: false
+    t.string   "title",                null: false
+    t.integer  "owner_id",             null: false
     t.integer  "album_id"
     t.string   "image_url"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "picture_file_name"
+    t.string   "picture_content_type"
+    t.integer  "picture_file_size"
+    t.datetime "picture_updated_at"
   end
 
   add_index "screenshots", ["album_id"], name: "index_screenshots_on_album_id", using: :btree
   add_index "screenshots", ["owner_id"], name: "index_screenshots_on_owner_id", using: :btree
 
   create_table "users", force: true do |t|
-    t.string   "username",        null: false
+    t.string   "username",             null: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "email"
     t.string   "password_digest"
     t.string   "session_token"
+    t.string   "picture_file_name"
+    t.string   "picture_content_type"
+    t.integer  "picture_file_size"
+    t.datetime "picture_updated_at"
   end
 
 end

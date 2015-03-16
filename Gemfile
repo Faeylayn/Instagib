@@ -47,3 +47,7 @@ group :development do
 end
 
 gem 'rails_12factor'
+
+gem "paperclip", "~> 4.2"
+gem "aws-sdk"
+gem "figaro"

@@ -23,7 +23,7 @@ column name     | data type | details
 id              | integer   | not null, primary key
 author_id       | integer   | not null, foreign key (references users)
 content         | string    | not null
-sceenshot_id    | integer   | not null, foreign key (references screenshots)
+ss_id           | integer   | not null, foreign key (references screenshots)
 parent_id       | integer   | foreign key (references comments, can be null)
 
 ## tags

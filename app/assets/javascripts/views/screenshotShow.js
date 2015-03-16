@@ -4,11 +4,12 @@ Instagib.Views.ScreenshotShow = Backbone.View.extend({
     "click .add-comment": "CommentForm",
     "click .reply-comment": "CommentReply",
     "click .submit-new": "submitNew",
-    "click .submit-reply": "submitReply"
+    "click .submit-reply": "submitReply",
+    "click .delete-comment": "deleteComment"
   },
 
   initialize: function () {
-    this.listenTo(this.model.comments(), "add", this.render)
+    this.listenTo(this.model.comments(), "add remove", this.render)
   },
 
   render: function () {
@@ -59,6 +60,24 @@ Instagib.Views.ScreenshotShow = Backbone.View.extend({
     comm.save({}, {
       success: function () {
         this.model.comments().add(comm)
+      }.bind(this)
+    })
+  },
+
+  deleteComment: function (event) {
+    event.preventDefault()
+    var comment = new Instagib.Models.Comment ({
+      id: $(event.currentTarget).attr("data-id")
+    })
+    comment.destroy({
+      success: function () {
+
+        var comm = this.model.comments().get(comment)
+        var parent = this.model.comments().get(comm.get("parent_id"))
+        parent.children().remove(comm)
+        this.model.comments().remove(comm)
+
+        // this.render()
       }.bind(this)
     })
   }

@@ -4,6 +4,9 @@
   <% if (Instagib.current_user_id) { %>
   <button class="reply-comment" data-id="<%= comment.get("id") %>">Reply to Comment</button>
   <% } %>
+  <% if (Instagib.current_user_id === comment.get("author_id")) { %>
+  <button class="delete-comment" data-id="<%= comment.get("id") %>">Delete Comment</button>
+  <% } %>
 </li>
 
 <ul class="child-comments" id="<%= comment.get("id") %>">
