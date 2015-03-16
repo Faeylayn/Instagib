@@ -13,4 +13,11 @@ class Screenshot < ActiveRecord::Base
   primary_key: :id,
   foreign_key: :owner_id
   )
+
+  has_many(
+    :comments,
+    :class_name => "Comment",
+    :primary_key => :id,
+    :foreign_key => :ss_id
+  )
 end

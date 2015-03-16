@@ -7,6 +7,8 @@ Rails.application.routes.draw do
     resources :screenshots
 
     resources :albums
+
+    resources :comments
   end
 
 
