@@ -2,5 +2,9 @@
   <label>Comment
   <textarea class="new-content" name="comment[content]"></textarea>
 </label>
+<% if (commentID) { %>
+  <input class="submit-reply" type="submit" name="submit" data-id="<%= commentID %>">
+  <% } else { %>
 <input class="submit-new" type="submit" name="Submit">
+<% } %>
 </form>

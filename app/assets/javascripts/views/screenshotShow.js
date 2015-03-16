@@ -22,13 +22,13 @@ Instagib.Views.ScreenshotShow = Backbone.View.extend({
 
   CommentForm: function (event) {
     event.preventDefault()
-    $(".comments").prepend(JST.new_comment())
+    $(".comments").prepend(JST.new_comment({commentID: null}))
     $(event.currentTarget).prop('disabled', true)
   },
 
   CommentReply: function (event) {
     event.preventDefault()
-    $("#"+$(event.currentTarget).attr("data-id")).prepend(JST.new_comment())
+    $("#"+$(event.currentTarget).attr("data-id")).prepend(JST.new_comment({commentID: $(event.currentTarget).attr("data-id")}))
     $(event.currentTarget).prop('disabled', true)
   },
 
@@ -39,6 +39,22 @@ Instagib.Views.ScreenshotShow = Backbone.View.extend({
       content: content,
       ss_id: this.model.id,
       author_id: Instagib.current_user_id
+    })
+    comm.save({}, {
+      success: function () {
+        this.model.comments().add(comm)
+      }.bind(this)
+    })
+  },
+
+  submitReply: function (event) {
+    event.preventDefault()
+    var content = this.$el.find(".new-content").val()
+    var comm = new Instagib.Models.Comment ({
+      content: content,
+      ss_id: this.model.id,
+      author_id: Instagib.current_user_id,
+      parent_id: $(event.currentTarget).attr("data-id")
     })
     comm.save({}, {
       success: function () {
