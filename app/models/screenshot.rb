@@ -1,5 +1,7 @@
 class Screenshot < ActiveRecord::Base
 
+  include PgSearch
+  multisearchable :against => :title
   has_attached_file :picture, :default_url => ActionController::Base.helpers.asset_path("No_Image.jpg")
   validates_attachment_content_type :picture, :content_type => /\Aimage\/.*\Z/
 

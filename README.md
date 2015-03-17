@@ -90,6 +90,7 @@ can add multiple tags to screenshots.
 - [ ] Friend users
 - [ ] Feed homepage
 - [ ] Adding Game pages?
+- [ ] Hover Previews?
 
 
 

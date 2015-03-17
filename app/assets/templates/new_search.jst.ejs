@@ -1,0 +1,20 @@
+<h1>SEARCH!</h1>
+
+<label> Search
+  <input type="text" class="query" name="query" value="">
+</label>
+
+<ul>
+  <% results.each(function(result) { %>
+    <li>
+      <% if (result instanceof Instagib.Models.User) {%>
+        <%= result.escape("username") %>
+      <% } else { %>
+        <%= result.escape("title") %>
+
+      <% } %>
+    </li>
+
+  <%  }) %>
+
+</ul>

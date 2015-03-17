@@ -7,7 +7,7 @@ Instagib.Router = Backbone.Router.extend({
     "albums/:id": "AlbumShow",
     "users/:id": "UserShow",
     "users/:id/albums": "AlbumsIndex",
-
+    "search": "Search"
   },
 
   ScreenshotShow: function (id) {
@@ -83,6 +83,13 @@ Instagib.Router = Backbone.Router.extend({
       }.bind(this)
     })
     this._SwapView(this._albumIndex)
+  },
+
+  Search: function (id) {
+    var view = new Instagib.Views.Search();
+    view.render()
+    $(".display").html(view.$el)
+    this._SwapView(view);
   },
 
   _SwapView: function (newView) {

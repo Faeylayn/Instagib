@@ -1,5 +1,8 @@
 class Album < ActiveRecord::Base
 
+  include PgSearch
+  multisearchable :against => :title
+
   has_many :screenshots
   belongs_to(
   :owner,
