@@ -2,7 +2,7 @@
 
 <%= @user.errors.full_messages %>
 
-<form action="<%= users_url %>" method="post">
+<form action="<%= users_url %>" method="post" enctype="multipart/form-data">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 
   <label>Username

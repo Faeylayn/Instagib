@@ -1,5 +1,7 @@
 class Screenshot < ActiveRecord::Base
 
+  has_attached_file :picture
+
   belongs_to(
   :album,
   class_name: "Album",

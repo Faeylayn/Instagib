@@ -7,7 +7,8 @@ class User < ActiveRecord::Base
   before_validation :ensure_session_token
 
   has_attached_file :picture
-  
+  validates_attachment_content_type :picture, :content_type => /\Aimage\/.*\Z/
+
   has_many(
   :albums,
   class_name: "Album",

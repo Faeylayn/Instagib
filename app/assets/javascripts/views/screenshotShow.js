@@ -74,7 +74,11 @@ Instagib.Views.ScreenshotShow = Backbone.View.extend({
 
         var comm = this.model.comments().get(comment)
         var parent = this.model.comments().get(comm.get("parent_id"))
-        parent.children().remove(comm)
+        if (parent) {
+          parent.children().remove(comm)
+        } else {
+          this.model.topLevelComments().remove(comm)
+        }
         this.model.comments().remove(comm)
 
         // this.render()
