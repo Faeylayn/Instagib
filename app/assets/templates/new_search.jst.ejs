@@ -8,10 +8,10 @@
   <% results.each(function(result) { %>
     <li>
       <% if (result instanceof Instagib.Models.User) {%>
-        <%= result.escape("username") %>
+        <%= result.escape("username") %> (User)
       <% } else { %>
         <%= result.escape("title") %>
-
+        (<%=result.get("_type")%>)
       <% } %>
     </li>
 

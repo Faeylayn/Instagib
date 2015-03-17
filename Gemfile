@@ -45,8 +45,9 @@ group :development do
   gem 'binding_of_caller'
   gem 'pry-rails'
 end
-
-gem 'rails_12factor'
+group :production do
+  gem 'rails_12factor'
+end
 
 gem "paperclip", "~> 4.2"
 gem "aws-sdk", "< 2.0"
