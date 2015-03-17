@@ -3,7 +3,8 @@ Instagib.Views.AlbumShow = Backbone.View.extend({
   events: {
     "click .add-ss": "AddToAlbum",
     "click .submit-add": "AddtheSS",
-    "click .remove-ss": "removeSS"
+    "click .remove-ss": "removeSS",
+    "click .album-ss": "goToSS"
   },
 
   initialize: function () {
@@ -58,6 +59,12 @@ Instagib.Views.AlbumShow = Backbone.View.extend({
         })
       }.bind(this)
     })
+  },
+
+  goToSS: function (event) {
+    event.preventDefault();
+    var id = $(event.currentTarget).data("id")
+    Backbone.history.navigate("screenshots/" + id, {trigger: true})
   }
 
 

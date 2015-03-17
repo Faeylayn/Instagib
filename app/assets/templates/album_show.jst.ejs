@@ -7,7 +7,7 @@
   <span> <%= screenshot.escape("title") %> </span>
 
 
-  <img class="album-ss" src="<%= screenshot.escape("image_url") %>" alt="" />
+  <a class="album-ss" data-id="<%=screenshot.get('id')%>" href="#"><img class="album-ss" src="<%= screenshot.escape("image_url") %>" alt="" /></a>
   <% if (Instagib.current_user_id === album.get("owner_id")) {%>
   <button class="remove-ss" data-id="<%= screenshot.get("id") %>">Remove Screenshot from Album</button>
   <% } %>
