@@ -1,4 +1,4 @@
-class UsersController < ApplicationController
+class Api::UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
   end
@@ -9,7 +9,7 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
-
+    render "users/new.html.erb"
   end
 
   def create
@@ -20,7 +20,7 @@ class UsersController < ApplicationController
       sign_in(@user)
       redirect_to root_url
     else
-      render :new
+      render "users/new.html.erb"
     end
   end
 

@@ -5,7 +5,9 @@ Instagib.Router = Backbone.Router.extend({
     "screenshots/:id": "ScreenshotShow",
     "albums/new": "AlbumForm",
     "albums/:id": "AlbumShow",
-    "users/:id/albums": "albumsIndex"
+    "users/:id": "UserShow",
+    "users/:id/albums": "albumsIndex",
+
   },
 
   ScreenshotShow: function (id) {
@@ -50,6 +52,19 @@ Instagib.Router = Backbone.Router.extend({
 
     })
     this._SwapView(this._screenshotShow)
+  },
+
+  UserShow: function (id) {
+    var user = new Instagib.Models.User({id: id})
+    user.fetch({
+      success: function () {
+        this._userShow = new Instagib.Views.UserShow({
+          model: user
+        })
+        this._userShow.render();
+        $(".display").html(this._userShow.$el)
+      }.bind(this)
+    })
   },
 
 
