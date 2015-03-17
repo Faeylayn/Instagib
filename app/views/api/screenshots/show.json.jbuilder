@@ -3,7 +3,8 @@ json.extract!(
     :title,
     :image_url,
     :id,
-    :owner_id
+    :owner_id,
+    :picture
 )
 
 json.comments do

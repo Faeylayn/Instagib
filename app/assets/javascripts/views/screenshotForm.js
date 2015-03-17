@@ -1,7 +1,8 @@
 Instagib.Views.ScreenshotForm = Backbone.View.extend({
 
   events: {
-    "click .create": "createScreenshot"
+    "click .create": "createScreenshot",
+    "change .picture-input": "changePicture"
   },
 
   render: function () {
@@ -12,13 +13,9 @@ Instagib.Views.ScreenshotForm = Backbone.View.extend({
 
   createScreenshot: function(event) {
     event.preventDefault()
-    var title = this.$el.find(".new-title").val()
-    var url = this.$el.find(".new-url").val()
-    var ss = new Instagib.Models.Screenshot({
-      title: title,
-      image_url: url
-    })
-    ss.save({}, {
+    var attr = this.$el.find("form").serializeJSON()
+    var ss = this.model
+    ss.save(attr, {
       success: function () {
         ss.fetch ({
           success: function (){
@@ -27,6 +24,24 @@ Instagib.Views.ScreenshotForm = Backbone.View.extend({
       })
       }
     })
+  },
+
+  changePicture: function (event) {
+    var file = event.currentTarget.files[0];
+
+    var fileReader = new FileReader();
+
+    var that = this;
+    fileReader.onloadend = function () {
+      that.model.set("picture", fileReader.result);
+      that.previewPic(fileReader.result);
+    };
+
+    fileReader.readAsDataURL(file);
+  },
+
+  previewPic: function (src) {
+    this.$("#picture-preview").attr("src", src);
   }
 
 

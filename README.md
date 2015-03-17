@@ -16,7 +16,7 @@ Instagib is an Instgram clone for videogame Screenshots. Users can:
 - [X] View albums and screenshots
 - [X] Add Their Screenshots to their albums
 - [X] Comment on Screenshots and other comments
-- [ ] Upload screenshots and reference screenshots by url
+- [X] Upload screenshots and reference screenshots by url
 - [ ] Search for users by username
 - [ ] Search for screenshots by title
 - [ ] Tag screenshots genres and game
@@ -85,7 +85,7 @@ can add multiple tags to screenshots.
 - [ ] Pagination/infinite scroll
 - [ ] Notifications
 - [ ] Multiple sessions/session management
-- [ ] User avatars
+- [X] User avatars
 - [ ] Typeahead search bar
 - [ ] Friend users
 - [ ] Feed homepage

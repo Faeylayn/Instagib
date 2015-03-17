@@ -6,9 +6,11 @@ class User < ActiveRecord::Base
 
   before_validation :ensure_session_token
 
-  has_attached_file :picture
+  has_attached_file :picture, :default_url => ActionController::Base.helpers.asset_path("No_Image.jpg")
   validates_attachment_content_type :picture, :content_type => /\Aimage\/.*\Z/
 
+
+  # "https://s3.amazonaws.com/instagib/images/users/No_Image.jpg"
   has_many(
   :albums,
   class_name: "Album",

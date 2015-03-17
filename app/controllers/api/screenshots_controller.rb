@@ -37,6 +37,6 @@ class Api::ScreenshotsController < ApplicationController
 
     private
     def screenshot_params
-      params.require(:screenshot).permit(:title, :image_url, :album_id)
+      params.require(:screenshot).permit(:title, :image_url, :album_id, :picture)
     end
 end

@@ -30,5 +30,11 @@ Instagib.Models.Screenshot = Backbone.Model.extend({
 
     }
     return payload
-  }
+  },
+
+  toJSON: function () {
+    return {
+      screenshot: _.clone(this.attributes)
+    };
+  },
 })
