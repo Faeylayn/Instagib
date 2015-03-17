@@ -6,7 +6,7 @@ Instagib.Router = Backbone.Router.extend({
     "albums/new": "AlbumForm",
     "albums/:id": "AlbumShow",
     "users/:id": "UserShow",
-    "users/:id/albums": "albumsIndex",
+    "users/:id/albums": "AlbumsIndex",
 
   },
 
@@ -67,14 +67,30 @@ Instagib.Router = Backbone.Router.extend({
         $(".display").html(this._userShow.$el)
       }.bind(this)
     })
+    this._SwapView(this._userShow)
   },
 
+  AlbumsIndex: function (id) {
+    var user = new Instagib.Models.User({id: id})
+    user.fetch({
+      success: function () {
+        this._albumIndex = new Instagib.Views.AlbumsIndex({
+          model: user,
+          collection: user.albums()
+        })
+        this._albumIndex.render();
+        $(".display").html(this._albumIndex.$el)
+      }.bind(this)
+    })
+    this._SwapView(this._albumIndex)
+  },
 
   _SwapView: function (newView) {
     if (this.currentView) {
       this.currentView.remove();
     };
     this.currentView = newView;
-  }
+  },
+
 
 })

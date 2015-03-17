@@ -1,0 +1,10 @@
+<h1><%= user.escape("username") %>'s Albums!</h1>
+
+<ul>
+<% albums.each(function (album) { %>
+
+  <li><a class="album" data-id="<%= album.id %>" href="#"><%=album.escape('title')%></a></li>
+
+  <% }) %>
+
+</ul>
