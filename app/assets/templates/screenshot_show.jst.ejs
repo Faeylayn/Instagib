@@ -6,9 +6,25 @@
   <img src="<%=screenshot.get("picture")%>" alt="" />
   <% } %>
 <br>
+<% if (Instagib.current_user_id === screenshot.get("owner_id")) { %>
+  <button class="add-tag">Add a new tag</button>
+<% } %>
+<ul class="tags">
+  <h2>Tags</h2>
+  <% screenshot.tags().each(function(tag) { %>
+    <li>
+      <%= tag.escape("label") %>
+    </li>
+
+    <% }) %>
+</ul>
+<br>
+
+
 <% if (Instagib.current_user_id) { %>
 <button class="add-comment">Add a new Comment</button>
 <% } %>
+
 <ul class="comments">
   <h1>Comments!</h1>
 

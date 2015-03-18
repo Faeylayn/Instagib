@@ -1,4 +1,4 @@
 Instagib.Models.Tag = Backbone.Model.extend({
-  urlRoot: "api/tags",
+  urlRoot: "api/taggings",
 
 })

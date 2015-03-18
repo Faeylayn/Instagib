@@ -21,7 +21,3 @@ json.tags do
     json.extract!(tag, :label, :id)
   end
 end
-
-json.game_tag do
-  json.extract!(@screenshot.game_tag, :label, :id)
-end

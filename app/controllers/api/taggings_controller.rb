@@ -24,6 +24,7 @@ class Api::TaggingsController < ApplicationController
         end
       end
       render json: @tag
+    end
   end
 
 end

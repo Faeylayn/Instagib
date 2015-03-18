@@ -15,6 +15,14 @@ Instagib.Models.Screenshot = Backbone.Model.extend({
     return this._topLevelComments
   },
 
+  tags: function () {
+    if (!this._tags) {
+      this._tags = new Instagib.Collections.Tags()
+    }
+    return this._tags
+  },
+
+
   parse: function (payload) {
     if (payload.comments) {
       this.comments().set(payload.comments)
@@ -28,6 +36,9 @@ Instagib.Models.Screenshot = Backbone.Model.extend({
 
       }.bind(this))
 
+    }
+    if (payload.tags) {
+      this.tags().set(payload.tags)
     }
     return payload
   },

@@ -1,5 +1,5 @@
 Instagib.Collections.Tags = Backbone.Collection.extend({
-  url: "api/tags",
+  url: "api/taggings",
 
   model: Instagib.Models.Tag,
 

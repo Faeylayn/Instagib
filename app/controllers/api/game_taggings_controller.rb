@@ -25,7 +25,7 @@ class Api::GameTaggingsController < ApplicationController
         end
       end
       render json: @game_tag
-
+    end
   end
 
 end

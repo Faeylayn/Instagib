@@ -5,11 +5,14 @@ Instagib.Views.ScreenshotShow = Backbone.View.extend({
     "click .reply-comment": "CommentReply",
     "click .submit-new": "submitNew",
     "click .submit-reply": "submitReply",
-    "click .delete-comment": "deleteComment"
+    "click .delete-comment": "deleteComment",
+    "click .add-tag": "TagForm",
+    "click .submit-tag": "submitTag"
   },
 
   initialize: function () {
-    this.listenTo(this.model.comments(), "add remove", this.render)
+    this.listenTo(this.model.comments(), "add remove", this.render),
+    this.listenTo(this.model.tags(), "add remove", this.render)
   },
 
   render: function () {
@@ -84,7 +87,25 @@ Instagib.Views.ScreenshotShow = Backbone.View.extend({
         // this.render()
       }.bind(this)
     })
-  }
+  },
 
+  TagForm: function (event) {
+    event.preventDefault()
+    $(".tags").prepend(JST.new_tag({screenshot: this.model}))
+    $(event.currentTarget).prop('disabled', true)
+  },
+
+
+  submitTag: function (event) {
+    event.preventDefault()
+    var attr = $(".tag-form").serializeJSON()
+    console.log(attr);
+    var tag = new Instagib.Models.Tag()
+    tag.save(attr, {
+      success: function () {
+        this.model.tags().add(tag)
+      }.bind(this)
+    })
+  }
 
 })
