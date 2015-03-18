@@ -22,6 +22,12 @@ Instagib.Models.Screenshot = Backbone.Model.extend({
     return this._tags
   },
 
+  gameTag: function () {
+    if (!this._gameTag) {
+      this._gameTag = new Instagib.Models.GameTag()
+    }
+    return this._gameTag
+  },
 
   parse: function (payload) {
     if (payload.comments) {
@@ -39,6 +45,9 @@ Instagib.Models.Screenshot = Backbone.Model.extend({
     }
     if (payload.tags) {
       this.tags().set(payload.tags)
+    }
+    if (payload.game_tag) {
+      this.gameTag().set(payload.game_tag)
     }
     return payload
   },

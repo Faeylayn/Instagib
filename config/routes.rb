@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 
     resources :comments
     resources :taggings
+    resources :game_taggings
   end
 
 

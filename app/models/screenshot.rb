@@ -32,9 +32,9 @@ class Screenshot < ActiveRecord::Base
 
   has_many :tags, :through => :taggings, :source => :tag
 
-  has_many :game_taggings,
-      :class_name => "Tagging",
+  has_one :game_tagging,
+      :class_name => "GameTagging",
       :foreign_key => :ss_id
 
-  has_one :game_tag, :through => :game_taggings, :source => :game_tag
+  has_one :game_tag, :through => :game_tagging, :source => :game_tag
 end
