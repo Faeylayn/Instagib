@@ -4,7 +4,10 @@ class User < ActiveRecord::Base
   include PgSearch
   multisearchable :against => :username
   validates :username, :session_token, :password_digest, :email, presence: true
-  validates :username, :session_token, :password_digest, :email, uniqueness: true
+  validates :username, :password_digest, :email, uniqueness: true
+  validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, :on => :create
+  validates_format_of :username, :password, with: /\A[a-z\d]*\Z/i, :on => :create
+  validates :password, length: {minimum: 6, :allow_nil => true}
 
   before_validation :ensure_session_token
 

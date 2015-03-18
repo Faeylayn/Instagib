@@ -1,5 +1,6 @@
 class Comment < ActiveRecord::Base
-
+  validates :content, presence: true
+  validates :content, length: {maximum: 140}
 
   belongs_to(
     :screenshot,
@@ -24,7 +25,7 @@ class Comment < ActiveRecord::Base
 
 
   has_many(
-    :children, 
+    :children,
     :class_name => "Comment",
     :primary_key => :id,
     :foreign_key => :parent_id

@@ -7,7 +7,8 @@ Instagib.Views.ScreenshotShow = Backbone.View.extend({
     "click .submit-reply": "submitReply",
     "click .delete-comment": "deleteComment",
     "click .add-tag": "TagForm",
-    "click .submit-tag": "submitTag"
+    "click .submit-tag": "submitTag",
+    "click .remove-tag": "deleteTag"
   },
 
   initialize: function () {
@@ -104,6 +105,21 @@ Instagib.Views.ScreenshotShow = Backbone.View.extend({
     tag.save(attr, {
       success: function () {
         this.model.tags().add(tag)
+      }.bind(this)
+    })
+  },
+
+  deleteTag: function (event) {
+    event.preventDefault()
+    var tag = new Instagib.Models.Tag ({
+      id: $(event.currentTarget).attr("data-id"),
+    })
+
+    tag.destroy({
+        data: "ss_id="+ this.model.id ,
+      success: function () {
+        tag = this.model.tags().get(tag)
+        this.model.tags().remove(tag)
       }.bind(this)
     })
   }

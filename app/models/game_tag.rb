@@ -1,5 +1,5 @@
 class GameTag < ActiveRecord::Base
-
+  validates :label, presence: true
 
   has_many :game_taggings,
       :class_name => "GameTagging",
