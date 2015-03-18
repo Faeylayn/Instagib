@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resource :session
   namespace :api, defaults: { format: :json } do
     get "/search", to: "static_pages#search"
-    resources :users, only: [:show]
+    resources :users, only: [:show, :update]
     resources :screenshots
 
     resources :albums
