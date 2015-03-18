@@ -15,3 +15,13 @@ json.comments do
     end
   end
 end
+
+json.tags do
+  json.array! @screenshot.tags do |tag|
+    json.extract!(tag, :label, :id)
+  end
+end
+
+json.game_tag do
+  json.extract!(@screenshot.game_tag, :label, :id)
+end

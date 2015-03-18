@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     resources :albums
 
     resources :comments
+    resources :taggings
   end
 
 

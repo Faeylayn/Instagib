@@ -25,4 +25,16 @@ class Screenshot < ActiveRecord::Base
     :primary_key => :id,
     :foreign_key => :ss_id
   )
+
+  has_many :taggings,
+      :class_name => "Tagging",
+      :foreign_key => :ss_id
+
+  has_many :tags, :through => :taggings, :source => :tag
+
+  has_many :game_taggings,
+      :class_name => "Tagging",
+      :foreign_key => :ss_id
+
+  has_one :game_tag, :through => :game_taggings, :source => :game_tag
 end

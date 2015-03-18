@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150317190736) do
+ActiveRecord::Schema.define(version: 20150318130230) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,22 @@ ActiveRecord::Schema.define(version: 20150317190736) do
   add_index "comments", ["parent_id"], name: "index_comments_on_parent_id", using: :btree
   add_index "comments", ["ss_id"], name: "index_comments_on_ss_id", using: :btree
 
+  create_table "game_taggings", force: true do |t|
+    t.integer  "ss_id",       null: false
+    t.integer  "game_tag_id", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "game_taggings", ["game_tag_id"], name: "index_game_taggings_on_game_tag_id", using: :btree
+  add_index "game_taggings", ["ss_id"], name: "index_game_taggings_on_ss_id", using: :btree
+
+  create_table "game_tags", force: true do |t|
+    t.string   "label",      null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "pg_search_documents", force: true do |t|
     t.text     "content"
     t.integer  "searchable_id"
@@ -59,6 +75,22 @@ ActiveRecord::Schema.define(version: 20150317190736) do
 
   add_index "screenshots", ["album_id"], name: "index_screenshots_on_album_id", using: :btree
   add_index "screenshots", ["owner_id"], name: "index_screenshots_on_owner_id", using: :btree
+
+  create_table "taggings", force: true do |t|
+    t.integer  "ss_id",      null: false
+    t.integer  "tag_id",     null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "taggings", ["ss_id"], name: "index_taggings_on_ss_id", using: :btree
+  add_index "taggings", ["tag_id"], name: "index_taggings_on_tag_id", using: :btree
+
+  create_table "tags", force: true do |t|
+    t.string   "label",      null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "username",             null: false

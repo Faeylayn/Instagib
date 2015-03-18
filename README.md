@@ -91,6 +91,7 @@ can add multiple tags to screenshots.
 - [ ] Feed homepage
 - [ ] Adding Game pages?
 - [ ] Hover Previews?
+- [ ] Omniauth
 
 
 
