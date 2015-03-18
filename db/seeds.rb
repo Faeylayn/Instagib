@@ -16,3 +16,12 @@ Screenshot.create(title: "Thingy", owner_id: 1, album_id: 1, image_url: "http://
 
 Album.create(title: "test album", owner_id: 1)
 Album.create(title: "not yours", owner_id: 2)
+
+GameTag.create(label: "A Game")
+
+GameTagging.create(:tag_id: 1, ss_id: 1)
+GameTagging.create(:tag_id: 1, ss_id: 2)
+GameTagging.create(:tag_id: 1, ss_id: 3)
+GameTagging.create(:tag_id: 1, ss_id: 4)
+GameTagging.create(:tag_id: 1, ss_id: 5)
+GameTagging.create(:tag_id: 1, ss_id: 6)

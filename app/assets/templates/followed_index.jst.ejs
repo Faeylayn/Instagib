@@ -1,0 +1,13 @@
+<h1> <%= user.escape("username") %>'s Followeds </h1>
+<ul>
+<% followeds.each(function(followed) { %>
+  <li>
+
+    <img src="<%= followed.get("picture") %>" alt="" />
+    <br>
+    <%= followed.escape("username") %>
+    <br>
+
+  </li>
+<%  }) %>
+</ul>

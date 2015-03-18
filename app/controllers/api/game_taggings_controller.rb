@@ -1,7 +1,6 @@
 class Api::GameTaggingsController < ApplicationController
 
-  def create
-
+  def edit
     label = params[:game_tag][:label]
     label = label.downcase
     @game_tag = Tag.find_or_create_by(:label => label)

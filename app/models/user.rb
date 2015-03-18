@@ -37,6 +37,22 @@ class User < ActiveRecord::Base
     :foreign_key => :author_id
   )
 
+  has_many(
+    :followering,
+    :class_name => "Following",
+    :foreign_key => :follower_id
+  )
+
+  has_many :followeds, :through => :followering, :source => :followed
+
+  has_many(
+    :followeding,
+    :class_name => "Following",
+    :foreign_key => :followed_id
+  )
+
+  has_many :followers, :through => :followeding, :source => :follower
+
   def self.find_by_credentials(username, password)
     user = User.find_by(:username => username)
     if user

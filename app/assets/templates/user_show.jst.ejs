@@ -1,7 +1,11 @@
-<h1 class="username"><%= user.escape("username") %></h1>
+<h1 class="username"><%= user.escape("username") %>'s Page</h1>
 
 <% if (Instagib.current_user_id === user.get("id") ){%>
 <span class="email"> <%= user.escape("email") %> </span>
 <% } %>
 <br>
 <img class="avatar" src="<%= user.get("picture") %>" alt="" />
+
+<button class="followers">See Followers</button>
+
+<button class="followed">See Followed</button>

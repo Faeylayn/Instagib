@@ -7,7 +7,10 @@ Instagib.Router = Backbone.Router.extend({
     "albums/:id": "AlbumShow",
     "users/:id": "UserShow",
     "users/:id/albums": "AlbumsIndex",
-    "search": "Search"
+    "search": "Search",
+    "users/:id/followers": "FollowersIndex",
+    "users/:id/followeds": "FollowedsIndex",
+
   },
 
   ScreenshotShow: function (id) {
@@ -85,11 +88,41 @@ Instagib.Router = Backbone.Router.extend({
     this._SwapView(this._albumIndex)
   },
 
-  Search: function (id) {
+  Search: function () {
     var view = new Instagib.Views.Search();
     view.render()
     $(".display").html(view.$el)
     this._SwapView(view);
+  },
+
+  FollowersIndex: function (id) {
+    var user = new Instagib.Models.User({id: id})
+    user.fetch({
+      success: function () {
+        var view = new Instagib.Views.FollowerIndex({
+          model: user,
+          collection: user.followers()
+        })
+        view.render()
+        $(".display").html(view.$el)
+        this._SwapView(view);
+      }.bind(this)
+    })
+  },
+
+  FollowedsIndex: function (id) {
+    var user = new Instagib.Models.User({id: id})
+    user.fetch({
+      success: function () {
+        var view = new Instagib.Views.FollowedIndex({
+          model: user,
+          collection: user.followeds()
+        })
+        view.render()
+        $(".display").html(view.$el)
+        this._SwapView(view);
+      }.bind(this)
+    })
   },
 
   _SwapView: function (newView) {

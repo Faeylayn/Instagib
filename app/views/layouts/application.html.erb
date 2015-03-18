@@ -11,8 +11,10 @@
  <script>
    Instagib.current_user_id = <%= current_user.id %>
  </script>
-You are signed in as <%= current_user.username %>
+You are signed in as <a href="#/users/<%=current_user.id%>"><%= current_user.username %>
 <img src="<%=current_user.picture.url%>" style="height: 50px" alt="" />
+</a>
+
 
 <form action="<%= session_url %>" method="post">
   <input type="hidden" name="_method" value="delete">
@@ -26,6 +28,15 @@ You are signed in as <%= current_user.username %>
   <a href="<%= new_session_url %>">Login</a> OR
   <a href="<%= users_new_url %>">SIGN UP</a>
  <% end %>
+ <header>
+   <nav>
+     <ul>
+       <li> <a href="#/search">Search</a> </li>
+       <li> <a href="#/users/<%=current_user.id%>" >Profile</a> </li>
+       <li> <a href="#/users/<%=current_user.id%>/albums">Your Albums</a> </li>
+     </ul>
+   </nav>
+ </header>
 
 <%= yield %>
 
