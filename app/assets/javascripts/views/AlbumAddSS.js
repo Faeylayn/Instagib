@@ -5,7 +5,7 @@ Instagib.Views.AlbumAddSS = Backbone.View.extend({
   },
 
   render: function () {
-    this.$el.empty();
+
     this.model.fetch({
       success: function () {
         this.$el.html(JST.album_addSS({album: this.model}));

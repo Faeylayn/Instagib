@@ -15,6 +15,10 @@ end
 json.followers do
   json.array! @user.followers do |follower|
     json.extract!(follower, :id, :username, :picture)
+
+    json.following_id do
+      json.extract!(@user.followeding.where(:follower_id => follower.id).first, :id)
+    end
   end
 end
 

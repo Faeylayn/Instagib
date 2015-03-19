@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     get "/search", to: "static_pages#search"
     resources :users, only: [:show, :update]
     resources :screenshots
+    resources :followings
 
     resources :albums
 

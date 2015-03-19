@@ -4,12 +4,19 @@ Instagib.Views.UserShow = Backbone.View.extend({
     "dblclick .username": "EditUsername",
     "dblclick .email": "EditEmail",
     "dblclick .avatar": "EditAvatar",
-    "click .submit": "updateUser"
+    "click .submit": "updateUser",
+    "click .follow": "FollowUser",
+    "click .unfollow": "UnFollowUser",
 
   },
 
+  initialize: function () {
+    this.listenTo(this.model, "sync", this.render)
+    this.listenTo(this.model.followers(), "add remove", this.render)
+  },
+
   render: function () {
-    this.$el.empty();
+
     this.$el.html(JST.user_show({user: this.model}))
   },
 
@@ -41,6 +48,29 @@ Instagib.Views.UserShow = Backbone.View.extend({
         this.render()
       }.bind(this)
     })
+
+  },
+
+  FollowUser: function (event) {
+    var follow = new Instagib.Models.Following({
+      followed_id: this.model.id,
+      follower_id: Instagib.current_user_id
+    })
+    follow.save({}, {
+      success: function () {
+        this.model.fetch()
+      }.bind(this)
+    })
+  },
+
+  UnFollowUser: function (event){
+    var follower = this.model.followers().get(Instagib.current_user_id)
+    var follow = new Instagib.Models.Following({
+      id: follower.get("following_id").id
+    })
+    follow.destroy()
+
+    this.model.followers().remove(follower)
 
   }
 

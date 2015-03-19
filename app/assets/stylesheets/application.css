@@ -189,3 +189,9 @@ button.add-ss {
 .ss-img:hover {
   cursor: pointer
 }
+
+/* --- USER-SHOW --- */
+
+.avatar {
+  height: 200px;
+}

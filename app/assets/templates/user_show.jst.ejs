@@ -2,7 +2,14 @@
 
 <% if (Instagib.current_user_id === user.get("id") ){%>
 <span class="email"> <%= user.escape("email") %> </span>
-<% } %>
+<% } else { %>
+  <% if (Instagib.current_user_id) {%>
+    <% if (user.isFollowed(Instagib.current_user_id)) { %>
+      <button class="unfollow">Unfollow</button>
+    <% } else { %>
+      <button class="follow">Follow</button>
+    <% } } }%>
+
 <br>
 <img class="avatar" src="<%= user.get("picture") %>" alt="" />
 

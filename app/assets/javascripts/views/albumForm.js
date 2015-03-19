@@ -5,7 +5,6 @@ Instagib.Views.AlbumForm = Backbone.View.extend({
   },
 
   render: function () {
-    this.$el.empty();
     this.$el.html(JST.album_form());
   },
 

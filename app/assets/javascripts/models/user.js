@@ -22,6 +22,10 @@ Instagib.Models.User = Backbone.Model.extend({
     return this._followeds
   },
 
+  isFollowed: function (id) {
+    return this.followers().get(id)
+  },
+
 
   parse: function (payload) {
     if (payload.albums) {
