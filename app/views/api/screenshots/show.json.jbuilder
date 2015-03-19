@@ -11,7 +11,11 @@ json.comments do
   json.array! @screenshot.comments do |comment|
     json.extract!(comment, :author_id, :content, :parent_id, :id)
     json.author do
-      json.extract!(comment.author, :username)
+      if comment.author_id
+        json.extract!(comment.author, :username)
+      else
+        json.extract!(comment, :content)
+      end
     end
   end
 end

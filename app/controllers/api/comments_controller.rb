@@ -16,7 +16,13 @@ class Api::CommentsController < ApplicationController
 
   def destroy
     comment = Comment.find(params[:id])
-    comment.destroy!
+    if comment.children.blank? #|| comment.children.all?{ |comm| comm.author_id.nil? }
+      comment.destroy!
+    else
+      comment.content = "deleted"
+      comment.author_id = nil
+      comment.save
+    end
     render json: comment
   end
 
