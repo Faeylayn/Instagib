@@ -133,7 +133,9 @@ Instagib.Views.ScreenshotShow = Backbone.View.extend({
       close: function () {
         $('.ss-modal').dialog('destroy')
         $('.ss-modal').remove()
-      }
+      },
+
+});
       })
   }
 

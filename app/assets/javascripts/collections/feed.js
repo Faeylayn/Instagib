@@ -3,7 +3,9 @@ Instagib.Collections.Feed = Backbone.Collection.extend({
 
   model: Instagib.Models.Screenshot,
 
-  comparator: "created_at",
+  comparator: function (ss) {
+    return ss.get("created_at")
+  }
 
 
 })

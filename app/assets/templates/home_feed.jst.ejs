@@ -1,1 +1,12 @@
-<h1>Newest Screenshots!</h1>
+
+  <section class="feed-ss-container">
+  <span class="feed-ss-title"> <%= screenshot.escape("title") %> </span>
+
+
+  <a class="feed-ss" data-id="<%=screenshot.get('id')%>" href="#/screenshots/<%=screenshot.get('id')%>"><img class="feed-ss" src="<%= screenshot.get("picture") %>" alt="" />
+    </a>
+  <br>
+
+
+  <br>
+</section>

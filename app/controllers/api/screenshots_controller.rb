@@ -4,7 +4,7 @@ class Api::ScreenshotsController < ApplicationController
     end
 
     def index
-
+      @screenshots = Screenshot.all
     end
 
     def new
