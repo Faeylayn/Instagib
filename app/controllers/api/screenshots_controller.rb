@@ -1,6 +1,6 @@
 class Api::ScreenshotsController < ApplicationController
     def show
-      @screenshot = Screenshot.find(params[:id])
+      @screenshot = Screenshot.includes(:comments, :game_tag).find(params[:id])
     end
 
     def index
@@ -13,6 +13,7 @@ class Api::ScreenshotsController < ApplicationController
 
     def create
       @screenshot = current_user.screenshots.new(screenshot_params)
+      @screenshot.picture = params[:screenshot][:picture]
       label = params[:screenshot][:game_tag][:label]
       label = label.downcase
       game_tag = GameTag.find_or_create_by(:label => label)
@@ -41,6 +42,6 @@ class Api::ScreenshotsController < ApplicationController
 
     private
     def screenshot_params
-      params.require(:screenshot).permit(:title, :image_url, :album_id, :picture)
+      params.require(:screenshot).permit(:title, :image_url, :album_id)
     end
 end

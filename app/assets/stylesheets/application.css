@@ -169,3 +169,7 @@ button.add-ss {
 .ss-img {
   height: 300px
 }
+
+.ss-img:hover {
+  cursor: pointer
+}

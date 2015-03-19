@@ -8,7 +8,8 @@ Instagib.Views.ScreenshotShow = Backbone.View.extend({
     "click .delete-comment": "deleteComment",
     "click .add-tag": "TagForm",
     "click .submit-tag": "submitTag",
-    "click .remove-tag": "deleteTag"
+    "click .remove-tag": "deleteTag",
+    "click .ss-img": "CreateModal"
   },
 
   initialize: function () {
@@ -122,6 +123,19 @@ Instagib.Views.ScreenshotShow = Backbone.View.extend({
         this.model.tags().remove(tag)
       }.bind(this)
     })
+  },
+
+  CreateModal: function () {
+    this.$el.append("<img class='ss-modal' src=" + this.model.get("picture") + "/>");
+    $('.ss-modal').dialog({
+      modal: true,
+      height: 'auto',
+      width: 'auto',
+      close: function () {
+        $('.ss-modal').dialog('destroy')
+        $('.ss-modal').remove()
+      }
+      })
   }
 
 })
