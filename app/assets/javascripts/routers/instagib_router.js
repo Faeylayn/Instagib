@@ -11,6 +11,7 @@ Instagib.Router = Backbone.Router.extend({
     "search": "Search",
     "users/:id/followers": "FollowersIndex",
     "users/:id/followeds": "FollowedsIndex",
+    "users/:id/favorites": "UserFavorites"
 
   },
 
@@ -131,6 +132,21 @@ Instagib.Router = Backbone.Router.extend({
         var view = new Instagib.Views.FollowedIndex({
           model: user,
           collection: user.followeds()
+        })
+        view.render()
+        $(".display").html(view.$el)
+        this._SwapView(view);
+      }.bind(this)
+    })
+  },
+
+  UserFavorites: function (id) {
+    var user = new Instagib.Models.User({id: id})
+    user.fetch({
+      success: function () {
+        var view = new Instagib.Views.Favorites({
+          model: user,
+          collection: user.favorites()
         })
         view.render()
         $(".display").html(view.$el)

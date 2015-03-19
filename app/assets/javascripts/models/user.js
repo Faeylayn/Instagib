@@ -25,6 +25,12 @@ Instagib.Models.User = Backbone.Model.extend({
   isFollowed: function (id) {
     return this.followers().get(id)
   },
+  favorites: function () {
+    if (!this._favorites) {
+      this._favorites = new Instagib.Collections.Screenshots()
+    }
+    return this._favorites
+  },
 
 
   parse: function (payload) {
@@ -36,6 +42,9 @@ Instagib.Models.User = Backbone.Model.extend({
     }
     if (payload.followeds) {
       this.followeds().set(payload.followeds)
+    }
+    if (payload.favorites) {
+      this.favorites().set(payload.favorites)
     }
     return payload
   }

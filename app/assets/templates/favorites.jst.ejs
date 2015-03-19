@@ -1,0 +1,16 @@
+<h1> <%= user.escape("username") %>'s Favorite SS's </h1>
+<ul>
+<% favorites.each(function(fav) { %>
+  <li>
+
+    <a href="#/screenshots/<%= fav.id %>"></a><img src="<%= fav.get("picture") %>" alt="" />
+    <br>
+    <%= fav.escape("title") %>
+    <br>
+    <% if (Instagib.current_user_id === user.id){ %>
+      <button class="unfav" data-id="<%= fav.id %>">Unfavorite this Screenshot</button>
+      <% } %>
+
+  </li>
+<%  }) %>
+</ul>
