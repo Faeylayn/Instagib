@@ -22,6 +22,7 @@ Instagib.Views.AlbumShow = Backbone.View.extend({
 
   AddToAlbum: function (event) {
     event.preventDefault()
+    $(event.currentTarget).prop('disabled', true)
     this._addSS = new Instagib.Views.AlbumAddSS({
       model: this.model,
       collection: this.model.other_ss()

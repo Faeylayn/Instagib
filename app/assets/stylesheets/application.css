@@ -13,7 +13,138 @@
  *= require_tree .
  *= require_self
  */
+ /* --- RESET --- */
+
+ html, body, header, nav, h1, a, ul, li,
+ strong, main, section, img, div, h2, p,
+ form, fieldset, label, input, textarea,
+ button, article, footer, small {
+   margin: 0;
+   padding: 0;
+   border: 0;
+   outline: 0;
+   font: inherit;
+   box-sizing: inherit;
+   text-align: inherit;
+   text-decoration: inherit;
+   vertical-align: inherit;
+   color: inherit;
+   background: transparent;
+ }
+
+ ul {
+   list-style: none;
+ }
+
+ input, textarea {
+   background: #ccc;
+   color: #000
+ }
+
+
+
+ /* --- CLEARFIX --- */
+
+ .group:after {
+   content: "";
+   clear: both;
+   display: block;
+ }
+
+ /* --- SITEWIDE --- */
+
+ body {
+   background: #000;
+   color: #fff;
+ }
+
+ .display {
+   background: #aaa;
+   width: 800px;
+   margin: auto;
+ }
+
+ /* --- NAVBAR --- */
+
+ .root-header {
+   background: -webkit-linear-gradient(#aaa, #ddd, #fff, #ccc, #aaa);
+ }
+
+ .root-navbar {
+   width: 600px;
+   margin: auto;
+
+   color: #000
+ }
+
+ .root-buttons {
+   float: right;
+   width: 100%;
+
+ }
+
+ .root-buttons li {
+   float: left;
+   width: 100px;
+   border: 1px solid #aaa;
+   padding: 10px;
+   text-align: center;
+ }
+
+ .root-buttons li:hover {
+   background: -webkit-linear-gradient(#000, #ccc, #ddd, #ccc, #000);
+}
+
+
+
+ /* --- HOMEPAGE --- */
+
+
+
+
+/* --- ALBUM-SHOW --- */
 
 .album-ss {
-  height: 300px;
+  height: 100px;
+  width: 100px;
+  position: relative;
+  left: 20px;
+}
+
+.album-ss-popout {
+  height: 200px;
+  display: none;
+
+}
+
+.album-ss:hover .album-ss-popout {
+  display: inline;
+  position: absolute;
+  z-index: 10;
+  border: 1px solid white;
+  right: -100px
+}
+
+.album-ss-title {
+  font-size: 24px;
+  padding: 20px 50px;
+  display: block;
+}
+
+.album-ss-container {
+  float: left;
+  padding: 20px;
+  position: relative;
+}
+
+button.add-ss {
+  display: block;
+  clear: both;
+}
+
+/* --- SCREENSHOT-SHOW --- */
+
+
+.ss-img {
+  height: 300px
 }

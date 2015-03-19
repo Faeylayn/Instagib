@@ -3,7 +3,7 @@
 <% if (screenshot.escape("image_url")) {%>
 <img src="<%= screenshot.escape("image_url") %>" alt="" />
 <% } else { %>
-  <img src="<%=screenshot.get("picture")%>" alt="" />
+  <img class="ss-img" src="<%=screenshot.get("picture")%>" alt="" />
   <% } %>
 <br>
 <% if (Instagib.current_user_id === screenshot.get("owner_id")) { %>

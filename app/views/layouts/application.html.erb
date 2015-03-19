@@ -6,7 +6,7 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body class="group">
  <% if current_user %>
  <script>
    Instagib.current_user_id = <%= current_user.id %>
@@ -16,7 +16,7 @@ You are signed in as <a href="#/users/<%=current_user.id%>"><%= current_user.use
 </a>
 
 
-<form action="<%= session_url %>" method="post">
+<form class="logout" action="<%= session_url %>" method="post">
   <input type="hidden" name="_method" value="delete">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
   <input type="submit" name="logout" value="Logout">
@@ -28,10 +28,13 @@ You are signed in as <a href="#/users/<%=current_user.id%>"><%= current_user.use
   <a href="<%= new_session_url %>">Login</a> OR
   <a href="<%= users_new_url %>">SIGN UP</a>
  <% end %>
+
+ <h1 class="logo">INSTAGIB</h1>
+
  <% if current_user %>
- <header>
-   <nav>
-     <ul>
+ <header class="root-header group">
+   <nav class="root-navbar group">
+     <ul class="root-buttons group">
        <li> <a href="#/search">Search</a> </li>
        <li> <a href="#/users/<%=current_user.id%>" >Profile</a> </li>
        <li> <a href="#/users/<%=current_user.id%>/albums">Your Albums</a> </li>

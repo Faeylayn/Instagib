@@ -1,21 +1,26 @@
 
 
+
+
 <h1> <%= album.escape("title") %> </h1>
 
 <% album.screenshots().each(function (screenshot) { %>
+  <section class="album-ss-container">
+  <span class="album-ss-title"> <%= screenshot.escape("title") %> </span>
 
-  <span> <%= screenshot.escape("title") %> </span>
 
-
-  <a class="album-ss" data-id="<%=screenshot.get('id')%>" href="#/screenshots/<%=screenshot.get('id')%>"><img class="album-ss" src="<%= screenshot.get("picture") %>" alt="" /></a>
+  <a class="album-ss" data-id="<%=screenshot.get('id')%>" href="#/screenshots/<%=screenshot.get('id')%>"><img class="album-ss" src="<%= screenshot.get("picture") %>" alt="" />
+    <img class="album-ss-popout" src="<%= screenshot.get("picture") %>" alt="" /></a>
+  <br>
   <% if (Instagib.current_user_id === album.get("owner_id")) {%>
   <button class="remove-ss" data-id="<%= screenshot.get("id") %>">Remove Screenshot from Album</button>
   <% } %>
 
   <br>
+</section>
 <% }.bind(album)) %>
 <br>
 <br>
 <% if (Instagib.current_user_id === album.get("owner_id")) {%>
-<a class="add-ss" href="#">Add screenshots to this album</a>
+<button class="add-ss">Add screenshots to this album<button>
 <% } %>

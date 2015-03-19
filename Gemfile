@@ -55,3 +55,4 @@ gem "figaro"
 
 gem "pg_search"
 gem "kaminari"
+gem 'jquery-ui-rails'
