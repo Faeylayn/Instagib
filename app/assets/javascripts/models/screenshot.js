@@ -29,6 +29,17 @@ Instagib.Models.Screenshot = Backbone.Model.extend({
     return this._gameTag
   },
 
+  favoritedUsers: function () {
+    if (!this._favoritedUsers) {
+      this._favoritedUsers = new Instagib.Collections.Users()
+    }
+    return this._favoritedUsers
+  },
+
+  isFavorited: function (id) {
+    return this.favoritedUsers().get(id)
+  },
+
   parse: function (payload) {
     if (payload.comments) {
       this.comments().set(payload.comments)
@@ -48,6 +59,9 @@ Instagib.Models.Screenshot = Backbone.Model.extend({
     }
     if (payload.game_tag) {
       this.gameTag().set(payload.game_tag)
+    }
+    if (payload.favorited_users) {
+      this.favoritedUsers().set(payload.favorited_users)
     }
     return payload
   },

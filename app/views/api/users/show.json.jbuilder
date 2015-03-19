@@ -27,3 +27,13 @@ json.followeds do
     json.extract!(followed, :id, :username, :picture)
   end
 end
+
+json.favorites do
+  json.array! @user.favorite_ss do |ss|
+    json.extract!(ss, :id, :title, :picture)
+    json.favorite_id do
+      json.extract!(@user.favorite.where(:ss_id => ss.id).first, :id)
+    end
+
+  end
+end

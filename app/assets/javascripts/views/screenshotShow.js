@@ -9,7 +9,9 @@ Instagib.Views.ScreenshotShow = Backbone.View.extend({
     "click .add-tag": "TagForm",
     "click .submit-tag": "submitTag",
     "click .remove-tag": "deleteTag",
-    "click .ss-img": "CreateModal"
+    "click .ss-img": "CreateModal",
+    "click .fav": "FavSS",
+    "click .unfav": "UnFavSS",
   },
 
   initialize: function () {
@@ -136,7 +138,29 @@ Instagib.Views.ScreenshotShow = Backbone.View.extend({
       },
 
 });
-      })
+
+  },
+  FavSS: function (event) {
+    var fav = new Instagib.Models.Favorite({
+      ss_id: this.model.id,
+      user_id: Instagib.current_user_id
+    })
+    fav.save({}, {
+      success: function () {
+        this.render()
+      }.bind(this)
+    })
+  },
+
+  UnFavSS: function (event){
+    var faver = this.model.favoritedUsers().get(Instagib.current_user_id)
+    var fav = new Instagib.Models.Favorite({
+      id: faver.get("favorite_id").id
+    })
+    fav.destroy()
+
+    this.render()
+
   }
 
 })

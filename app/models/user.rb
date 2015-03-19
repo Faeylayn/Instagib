@@ -53,6 +53,10 @@ class User < ActiveRecord::Base
 
   has_many :followers, :through => :followeding, :source => :follower
 
+  has_many :favorites
+
+  has_many :favorite_ss, :through => :favorites, :source => :screenshot
+
   def self.find_by_credentials(username, password)
     user = User.find_by(:username => username)
     if user

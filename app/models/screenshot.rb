@@ -39,4 +39,10 @@ class Screenshot < ActiveRecord::Base
       :foreign_key => :ss_id
 
   has_one :game_tag, :through => :game_tagging, :source => :game_tag
+
+  has_many :favorites,
+      :class_name => "Favorite",
+      :foreign_key => :ss_id
+
+  has_many :favorited_users, :through => :favorites, :source => :user
 end

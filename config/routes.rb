@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     resources :users, only: [:show, :update]
     resources :screenshots
     resources :followings
+    resources :favorites
 
     resources :albums
 

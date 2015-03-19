@@ -8,7 +8,14 @@
 <br>
 <% if (Instagib.current_user_id === screenshot.get("owner_id")) { %>
   <button class="add-tag">Add a new tag</button>
-<% } %>
+<% } else { %>
+  <% if (Instagib.current_user_id) { %>
+    <% if (screenshot.isFavorited(Instagib.current_user_id)) { %>
+      <button class="unfav">Remove from Favorites</button>
+      <% } else { %>
+        <button class="fav">Add to Favorites</button>        
+
+  <% }}} %>
 <ul class="tags">
   <h2>Tags</h2>
   <% screenshot.tags().each(function(tag) { %>

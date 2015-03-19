@@ -29,3 +29,12 @@ end
 json.game_tag do
   json.extract!(@screenshot.game_tag, :label, :id)
 end
+
+json.favorited_users do
+  json.array! @screenshot.favorited_users do |user|
+    json.extract!(user, :id)
+    json.favorite_id do
+      json.extract!(@screenshot.favorites.where(:user_id => user.id).first, :id)
+    end
+  end
+end
