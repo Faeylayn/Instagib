@@ -1,6 +1,7 @@
 Instagib.Router = Backbone.Router.extend({
 
   routes: {
+    '': "HomeFeed",
     "screenshots/new": "ScreenshotForm",
     "screenshots/:id": "ScreenshotShow",
     "albums/new": "AlbumForm",
@@ -11,6 +12,10 @@ Instagib.Router = Backbone.Router.extend({
     "users/:id/followers": "FollowersIndex",
     "users/:id/followeds": "FollowedsIndex",
 
+  },
+
+  HomeFeed: function () {
+    
   },
 
   ScreenshotShow: function (id) {

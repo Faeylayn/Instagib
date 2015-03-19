@@ -3,7 +3,7 @@
 <ul>
 <% albums.each(function (album) { %>
 
-  <li><a class="album" data-id="<%= album.id %>" href="#"><%=album.escape('title')%></a></li>
+  <li><a class="album" data-id="<%= album.id %>" href="#/albums/<%=album.get("id")%>"><%=album.escape('title')%></a></li>
 
   <% }) %>
 

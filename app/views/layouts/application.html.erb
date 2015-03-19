@@ -28,6 +28,7 @@ You are signed in as <a href="#/users/<%=current_user.id%>"><%= current_user.use
   <a href="<%= new_session_url %>">Login</a> OR
   <a href="<%= users_new_url %>">SIGN UP</a>
  <% end %>
+ <% if current_user %>
  <header>
    <nav>
      <ul>
@@ -37,6 +38,7 @@ You are signed in as <a href="#/users/<%=current_user.id%>"><%= current_user.use
      </ul>
    </nav>
  </header>
+ <% end %>
 
 <%= yield %>
 
