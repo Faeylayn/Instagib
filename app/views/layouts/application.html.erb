@@ -7,14 +7,16 @@
   <%= csrf_meta_tags %>
 </head>
 <body class="group">
+  <h1 class="logo">INSTAGIB</h1>
  <% if current_user %>
  <script>
    Instagib.current_user_id = <%= current_user.id %>
  </script>
+ <span class="current-user">
 You are signed in as <a href="#/users/<%=current_user.id%>"><%= current_user.username %>
 <img src="<%=current_user.picture.url%>" style="height: 50px" alt="" />
 </a>
-
+</span>
 
 <form class="logout" action="<%= session_url %>" method="post">
   <input type="hidden" name="_method" value="delete">
@@ -29,7 +31,7 @@ You are signed in as <a href="#/users/<%=current_user.id%>"><%= current_user.use
   <a href="<%= users_new_url %>">SIGN UP</a>
  <% end %>
 
- <h1 class="logo">INSTAGIB</h1>
+
 
  <% if current_user %>
  <header class="root-header group">

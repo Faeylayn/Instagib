@@ -13,6 +13,10 @@
  *= require_tree .
  *= require_self
  */
+
+ /*
+ *= require jquery-ui
+ */
  /* --- RESET --- */
 
  html, body, header, nav, h1, a, ul, li,
@@ -54,19 +58,36 @@
  /* --- SITEWIDE --- */
 
  body {
-   background: #000;
+   background: -webkit-linear-gradient(left, #000, #000, #aaa, #bbb, #aaa, #000, #000);
    color: #fff;
  }
 
  .display {
-   background: #aaa;
+
    width: 800px;
    margin: auto;
+ }
+
+ .logo {
+   font-size: 48px;
+   text-align: center;
+   font-weight: bold;
+   text-shadow: 1px 1px 2px #000;
+
+ }
+
+ .current-user {
+   float: left
+ }
+
+ .logout {
+   float: right
  }
 
  /* --- NAVBAR --- */
 
  .root-header {
+   clear: both;
    background: -webkit-linear-gradient(#aaa, #ddd, #fff, #ccc, #aaa);
  }
 
