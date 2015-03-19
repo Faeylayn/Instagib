@@ -1,1 +1,1 @@
-json.extract! screenshot, :id, :title
+json.extract! screenshot, :title

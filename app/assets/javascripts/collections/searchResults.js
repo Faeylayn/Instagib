@@ -3,7 +3,6 @@ Instagib.Collections.SearchResults = Backbone.Collection.extend({
 
   model: function (attrs) {
 		var type = attrs._type;
-
 		return new Instagib.Models[type](attrs);
   }
 

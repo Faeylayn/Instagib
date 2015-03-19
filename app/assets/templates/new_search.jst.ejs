@@ -8,10 +8,13 @@
   <% results.each(function(result) { %>
     <li>
       <% if (result instanceof Instagib.Models.User) {%>
-        <%= result.escape("username") %> (User)
-      <% } else { %>
-        <%= result.escape("title") %>
+        <a href="#/users/<%=result.get("new_id")%>"><%= result.escape("username") %> (User)</a>
+      <% } else if (result instanceof Instagib.Models.Screenshot){ %>
+        <a href="#/screenshots/<%=result.get("new_id")%>"><%= result.escape("title") %></a>
         (<%=result.get("_type")%>)
+        <% } else if (result instanceof Instagib.Models.Album){ %>
+          <a href="#/albums/<%=result.get("new_id")%>"><%= result.escape("title") %></a>
+          (<%=result.get("_type")%>)
       <% } %>
     </li>
 

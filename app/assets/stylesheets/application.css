@@ -167,7 +167,23 @@ button.add-ss {
 
 
 .ss-img {
-  height: 300px
+  height: 300px;
+  padding: 20px;
+  background: #000;
+  float: left;
+}
+
+.add-tag {
+  clear: both;
+}
+
+.tags {
+  float: right;
+}
+
+.add-comment {
+  clear: both;
+  display: block;
 }
 
 .ss-img:hover {
