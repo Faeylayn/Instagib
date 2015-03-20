@@ -82,8 +82,22 @@
  }
 
  .logout {
-   float: right
+   float: right;
+   background: -webkit-linear-gradient(#aaa, #ddd, #fff, #ccc, #aaa);
+   padding: 20px;
+   color: black;
  }
+
+ button {
+   background: -webkit-linear-gradient(#aaa, #ddd, #fff, #ccc, #aaa);
+   padding: 10px;
+   color: black;
+   border-radius: 5px;
+ }
+
+ button:hover {
+   background: -webkit-linear-gradient(#000, #ccc, #ddd, #ccc, #000);
+}
 
  /* --- NAVBAR --- */
 
