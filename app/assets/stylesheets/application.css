@@ -120,11 +120,15 @@
 
  /* --- HOMEPAGE --- */
 
+ .feed {
+   position: relative;
+ }
+
  .feed-ss-container {
    float: left;
    padding: 20px;
    position: relative;
-
+   left: 0;
  }
 
 .feed-ss {
@@ -141,6 +145,21 @@
   display: block;
 }
 
+.feed-new-ss {
+  position: absolute;
+  left: -140px;
+}
+
+.feed-new-ss-mover {
+  position: absolute;
+  left: 0px;
+  transition: left 1000ms linear;
+}
+
+.feed-mover {
+  left: 180px;
+  transition: left 1000ms linear;
+}
 
 /* --- ALBUM-SHOW --- */
 
