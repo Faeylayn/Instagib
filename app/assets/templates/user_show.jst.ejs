@@ -13,8 +13,8 @@
 <br>
 <img class="avatar" src="<%= user.get("picture") %>" alt="" />
 
-<button class="followers">See Followers</button>
+<a href="#/users/<%=user.id%>/followers" class="followers">See Followers</a>
 
-<button class="followed">See Followed</button>
+<a href="#/users/<%=user.id%>/followeds" class="followed">See Followed</a>
 
 <a class="favorites" href="#/users/<%=user.id%>/favorites">See Favorite Screenshots!</button>

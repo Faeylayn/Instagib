@@ -3,9 +3,9 @@
 <% followers.each(function(follower) { %>
   <li>
 
-    <img src="<%= follower.get("picture") %>" alt="" />
+    <a href="#/users/<%=follower.id%>"><img src="<%= follower.get("picture") %>" alt="" />
     <br>
-    <%= follower.escape("username") %>
+    <%= follower.escape("username") %></a>
     <br>
 
   </li>
