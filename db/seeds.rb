@@ -10,22 +10,22 @@ User.create(username: "test", email: "test@email.com", password_digest: "$2a$10$
 
 
 u1=Screenshot.new(title: "Test Picture", owner_id: 1, album_id: nil)
-u1.picture = File.open("images/pic1.jpg")
+u1.picture = File.open("#{Rails.root}/public/images/pic1.jpg")
 u1.save!
 u2=Screenshot.new(title: "Wow", owner_id: 1, album_id: nil)
-u2.picture = File.open("images/pic2.jpg")
+u2.picture = File.open("#{Rails.root}/public/images/pic2.jpg")
 u2.save!
 u3=Screenshot.new(title: "Eve", owner_id: 1, album_id: nil)
-u3.picture = File.open("images/pic3.jpg")
+u3.picture = File.open("#{Rails.root}/public/images/pic3.jpg")
 u3.save!
 u4=Screenshot.new(title: "quake like", owner_id: 1, album_id: nil)
-u4.picture = File.open("images/pic4.jpg")
+u4.picture = File.open("#{Rails.root}/public/images/pic4.jpg")
 u4.save!
 u5=Screenshot.new(title: "dragon", owner_id: 1, album_id: 2)
-u5.picture = File.open("images/pic5.jpg")
+u5.picture = File.open("#{Rails.root}/public/images/pic5.jpg")
 u5.save!
 u6=Screenshot.new(title: "rts", owner_id: 1, album_id: 1)
-u6.picture = File.open("images/pic6.jpg")
+u6.picture = File.open("#{Rails.root}/public/images/pic6.jpg")
 u6.save!
 
 Album.create(title: "test album", owner_id: 1)
