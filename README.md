@@ -88,9 +88,9 @@ can add multiple tags to screenshots.
 - [X] User avatars
 - [ ] Typeahead search bar
 - [ ] Friend users
-- [ ] Feed homepage
+- [X] Feed homepage
 - [ ] Adding Game pages?
-- [ ] Hover Previews?
+- [X] Hover Previews?
 - [ ] Omniauth
 
 
