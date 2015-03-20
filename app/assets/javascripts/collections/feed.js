@@ -1,5 +1,5 @@
 Instagib.Collections.Feed = Backbone.Collection.extend({
-  url: "api/screenshots",
+  url: "api/homefeed",
 
   model: Instagib.Models.Screenshot,
 

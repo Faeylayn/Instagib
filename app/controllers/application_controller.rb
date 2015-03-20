@@ -13,4 +13,13 @@ class ApplicationController < ActionController::Base
   def sign_in(user)
     session[:token] = user.reset_session_token!
   end
+
+  def push_ss(ss)
+    picture_url = ss.picture.url
+    hash = JSON.parse(ss.to_json)
+    hash["picture"] = picture_url
+    new_json = hash.to_json
+
+    Pusher.trigger('screenshots', 'new_ss', new_json)
+  end
 end

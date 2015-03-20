@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resource :session
   namespace :api, defaults: { format: :json } do
     get "/search", to: "static_pages#search"
+    get "/homefeed", to: "screenshots#homefeed"
     resources :users, only: [:show, :update]
     resources :screenshots
     resources :followings

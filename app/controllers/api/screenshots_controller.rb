@@ -7,6 +7,11 @@ class Api::ScreenshotsController < ApplicationController
       @screenshots = Screenshot.all
     end
 
+    def homefeed
+      @screenshots = Screenshot.all.order(created_at: :desc).limit(4)
+      render :index
+    end
+
     def new
       @image = Screenshot.new
     end
@@ -20,6 +25,7 @@ class Api::ScreenshotsController < ApplicationController
       @screenshot.build_game_tagging(:game_tag_id => game_tag.id )
 
       if @screenshot.save
+        push_ss(@screenshot)
         render :show
       else
         render json: @screenshot.errors.full_messages

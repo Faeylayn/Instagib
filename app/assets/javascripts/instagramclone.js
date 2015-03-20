@@ -4,8 +4,16 @@ window.Instagib = {
   Views: {},
   Routers: {},
   initialize: function() {
-    new Instagib.Router();
+    var router = new Instagib.Router();
+
+
     Backbone.history.start();
+    var channel = window.pusher.subscribe('screenshots');
+
+    channel.bind('new_ss', function(data) {
+      var ss = new Instagib.Models.Screenshot(data);
+      router._homeFeed.collection.add(ss);
+    });
   },
   current_user_id: null
 };
