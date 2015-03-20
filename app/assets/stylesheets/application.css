@@ -229,6 +229,14 @@ button.add-ss {
   cursor: pointer
 }
 
+.comments {
+  list-style: circle outside
+}
+
+.child-comments {
+  list-style: square inside
+}
+
 /* --- USER-SHOW --- */
 
 .avatar {
