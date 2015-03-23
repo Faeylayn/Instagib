@@ -11,7 +11,8 @@ Instagib.Router = Backbone.Router.extend({
     "search": "Search",
     "users/:id/followers": "FollowersIndex",
     "users/:id/followeds": "FollowedsIndex",
-    "users/:id/favorites": "UserFavorites"
+    "users/:id/favorites": "UserFavorites",
+    "users/:id/messages": "UserMessages"
 
   },
 
@@ -154,6 +155,8 @@ Instagib.Router = Backbone.Router.extend({
       }.bind(this)
     })
   },
+
+  
 
   _SwapView: function (newView) {
     if (this.currentView) {

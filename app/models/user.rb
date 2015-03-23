@@ -57,6 +57,14 @@ class User < ActiveRecord::Base
 
   has_many :favorite_ss, :through => :favorites, :source => :screenshot
 
+  has_many :mail,
+    :class_name => "Message",
+    :foreign_key => :receiver_id
+
+  has_many :sent_mail,
+  :class_name => "Message",
+  :foreign_key => :sender_id
+
   def self.find_by_credentials(username, password)
     user = User.find_by(:username => username)
     if user
