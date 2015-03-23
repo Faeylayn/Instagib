@@ -21,6 +21,6 @@
 <% }.bind(album)) %>
 <br>
 <br>
-<% if (Instagib.current_user_id === album.get("owner_id")) {%>
-<button class="add-ss">Add screenshots to this album<button>
+<% if (Instagib.current_user_id === album.get("owner_id") && album.other_ss()) {%>
+<button class="add-ss">Add your screenshots to this album<button>
 <% } %>
