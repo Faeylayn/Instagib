@@ -58,8 +58,8 @@
  /* --- SITEWIDE --- */
 
  body {
-   /*background: -webkit-linear-gradient(left, #000, #000, #aaa, #bbb, #aaa, #000, #000);*/
-   background-image: url("../images/metal.jpg");
+   background: -webkit-linear-gradient(left, #000, #000, #aaa, #bbb, #aaa, #000, #000);
+   /*background-image: url("../images/metal.jpg");*/
    color: #fff;
  }
 
@@ -97,6 +97,11 @@
 
  button:hover {
    background: -webkit-linear-gradient(#000, #ccc, #ddd, #ccc, #000);
+}
+
+.login {
+  padding: 20px;
+  background: -webkit-linear-gradient(#aaa, #ddd, #fff, #ccc, #aaa);
 }
 
  /* --- NAVBAR --- */

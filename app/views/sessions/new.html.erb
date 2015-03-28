@@ -1,5 +1,8 @@
 <h1>Please Sign In</h1>
-<%= @user.errors.full_messages %>
+<% if @user.errors %>
+<% @user.errors.full_messages.each do |error| %>
+<%= error %>
+<%  %>
 
 <form action="<%= session_url %>" method="post">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
@@ -7,11 +10,11 @@
   <label>Username
     <input type="text" name="session[username]" value="<%= @user.username %>">
   </label>
-
+<br>
   <label>Password
     <input type="password" name="session[password]" value="">
   </label>
-
+<br>
   <input type="submit" name="Submit">
 
 </form>

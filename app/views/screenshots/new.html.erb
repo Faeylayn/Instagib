@@ -2,15 +2,15 @@
 
 <form action="<%= api_screenshots_url %>" method="post">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-
+<br>
   <label>Title
     <input type="text" name="screenshot[title]" value="<%= @image.title %>">
   </label>
-
+<br>
   <label>URL
     <input type="text" name="screenshot[image_url]" value="<%= @image.image_url %>">
   </label>
-
+<br>
   <input type="submit" name="Submit">
 
 </form>
