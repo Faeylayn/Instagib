@@ -12,7 +12,6 @@ JQuery UI
 JBuilder
 AWS and S3
 
-
 [Live link][heroku]
 
 [heroku]: https://instagib.space/
