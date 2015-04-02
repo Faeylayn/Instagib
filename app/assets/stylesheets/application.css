@@ -102,6 +102,7 @@
 .login {
   padding: 20px;
   background: -webkit-linear-gradient(#aaa, #ddd, #fff, #ccc, #aaa);
+  color: #000
 }
 
  /* --- NAVBAR --- */

@@ -6,7 +6,7 @@
 <% end %>
 
 <form action="<%= session_url %>" method="post">
-  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
 
   <label>Username
     <input type="text" name="session[username]" value="<%= @user.username %>">

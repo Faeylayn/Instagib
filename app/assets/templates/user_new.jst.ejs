@@ -1,0 +1,31 @@
+<h1>Please Sign Up</h1>
+
+<% if @user.errors %>
+<% @user.errors.full_messages.each do |error| %>
+<%= error %>
+<% end %>
+<% end %>
+
+<form action="<%= users_url %>" method="post" enctype="multipart/form-data">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+  <label>Username
+    <input type="text" name="user[username]" value="<%= @user.username %>">
+  </label>
+<br>
+  <label>Email
+    <input type="text" name="user[email]" value="<%= @user.email %>">
+  </label>
+<br>
+  <label>Password
+    <input type="password" name="user[password]" value="">
+  </label>
+<br>
+  <label> Avatar (you are not required to choose one now)
+  <input type="file" name="user[picture]">
+</label>
+<br>
+  <input type="submit" name="Submit">
+
+
+</form>
