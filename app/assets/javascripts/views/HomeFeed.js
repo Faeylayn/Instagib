@@ -64,6 +64,7 @@ Instagib.Views.HomeFeed = Backbone.View.extend({
   LoginForm: function(event) {
     event.preventDefault();
     this.$el.append(JST.session_new())
+    this.model = new Instagib.Models.User()
     this.modal = $(".new-session-modal").dialog({
       modal: true,
       height: 400,
@@ -81,22 +82,38 @@ Instagib.Views.HomeFeed = Backbone.View.extend({
   },
 
   SignUp: function() {
-
-    var attrs = $("body").find("form").serializeJSON()
-    this.model.save(attrs, {
-      success: function(){
-        $('.new-user-modal').empty()
-        $('.new-user-modal').append("<p> Successfully Logged In! Please click <a href=''>here</a> to return </p>")
-      }.bind(this),
-      error: function (){
-        var errors = arguments[1].responseJSON
-        $(".validation-tips").text(errors)
-      },
-    })
-
+        var attrs = $("body").find("form").serializeJSON()
+        this.model.save(attrs, {
+          success: function(){
+            $('.new-user-modal').empty()
+            $('.new-user-modal').append("<p> Successfully Logged In! Please click <a href=''>here</a> to return </p>")
+          }.bind(this),
+          error: function (){
+            var errors = arguments[1].responseJSON
+            $(".validation-tips").text(errors)
+          },
+        })
   },
 
   Login: function() {
+    var attrs = $("body").find("form").serializeJSON()
+
+    $.ajax({
+      url: '/session',
+      type: "POST",
+      data: attrs,
+      dataType: "json",
+      success: function(data){
+        $('.new-session-modal').empty()
+        $('.new-session-modal').append("<p> Successfully Logged In! Please click <a href=''>here</a> to return </p>")
+      },
+      error: function(){
+
+        var errors = arguments[0].responseText
+        $(".validation-tips").text(errors)
+      }
+    });
+
 
   }
 

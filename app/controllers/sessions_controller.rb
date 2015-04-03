@@ -9,10 +9,9 @@ class SessionsController < ApplicationController
     @user = User.find_by_credentials(params[:session][:username], params[:session][:password])
     if @user
       sign_in(@user)
-      redirect_to "/#/"
+      render json: @user
     else
-      @user = User.new
-      render :new
+      render json: 'That user/password combination does not exist', :status => :unprocessable_entity
     end
   end
 
@@ -22,7 +21,7 @@ class SessionsController < ApplicationController
       session[:token] = nil
       redirect_to root_url
     else
-      redirect_to new_session_url
+      redirect_to root_url
     end
 
   end
