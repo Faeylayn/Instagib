@@ -1,12 +1,12 @@
 
   <li class="feed-ss-container">
-  <span class="feed-ss-title"> <%= screenshot.escape("title") %> </span>
+
 
 
   <a class="feed-ss" data-id="<%=screenshot.get('id')%>" href="#/screenshots/<%=screenshot.get('id')%>"><img class="feed-ss" src="<%= screenshot.get("picture") %>" alt="" />
     </a>
   <br>
-
+<span class="feed-ss-title"> <%= screenshot.escape("title") %> </span>
 
   <br>
 </li>

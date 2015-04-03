@@ -22,8 +22,9 @@ Instagib.Router = Backbone.Router.extend({
     })
     this._homeFeed.collection.fetch({
       success: function () {
-        this._homeFeed.render();
         $(".display").html(this._homeFeed.$el);
+        this._homeFeed.render();
+
         this._SwapView(this._homeFeed);
       }.bind(this)
     })
@@ -156,7 +157,7 @@ Instagib.Router = Backbone.Router.extend({
     })
   },
 
-  
+
 
   _SwapView: function (newView) {
     if (this.currentView) {

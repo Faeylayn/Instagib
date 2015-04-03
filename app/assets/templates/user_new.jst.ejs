@@ -1,20 +1,16 @@
-<h1>Please Sign Up</h1>
 
-<% if @user.errors %>
-<% @user.errors.full_messages.each do |error| %>
-<%= error %>
-<% end %>
-<% end %>
 
-<form action="<%= users_url %>" method="post" enctype="multipart/form-data">
-  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+
+<form class="new-user-modal">
+  <p class="validation-tips">Please Sign Up<p>
 
   <label>Username
-    <input type="text" name="user[username]" value="<%= @user.username %>">
+    <input type="text" name="user[username]" value="">
   </label>
 <br>
   <label>Email
-    <input type="text" name="user[email]" value="<%= @user.email %>">
+    <input type="text" name="user[email]" value="">
   </label>
 <br>
   <label>Password
