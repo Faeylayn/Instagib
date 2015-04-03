@@ -34,6 +34,7 @@
    vertical-align: inherit;
    color: inherit;
    background: transparent;
+   font-family: sans-serif;
  }
 
  ul {
@@ -151,6 +152,13 @@
 
  .feed {
    position: relative;
+   padding: 20px;
+
+ }
+
+ .feed-cont-title {
+   padding: 40px 0 0 0;
+   text-align: center;
  }
 
  .feed-ss-container {

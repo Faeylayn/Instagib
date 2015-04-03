@@ -1,8 +1,8 @@
 class SessionsController < ApplicationController
 
-  def new
-    @user = User.new
-    render :new
+  def guest
+    session[:guest] = true
+    render json: User.first
   end
 
   def create
@@ -19,6 +19,7 @@ class SessionsController < ApplicationController
     if current_user
       current_user.reset_session_token!
       session[:token] = nil
+      session[:guest] = false
       redirect_to root_url
     else
       redirect_to root_url

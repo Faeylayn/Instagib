@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
 
   def current_user
+    return User.first if session[:guest]
     return nil if session[:token].nil?
     @cu ||= User.find_by(:session_token => session[:token])
   end

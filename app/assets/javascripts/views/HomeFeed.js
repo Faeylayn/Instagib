@@ -16,7 +16,7 @@ Instagib.Views.HomeFeed = Backbone.View.extend({
   render: function () {
   this.$el.empty();
   if (Instagib.current_user_id === null) {
-    this.$el.append("<a class='login' href='#'>Login</a> OR <a class='sign-up' href='#'>SIGN UP</a> <br>");
+    this.$el.append("<a class='login' href='#'>Login</a> OR <a class='sign-up' href='#'>SIGN UP</a> <br> <h2 class='feed-cont-title'> Newest Screenshots </h2>");
   }
   this.$el.append("<ul class='feed'></ul>");
   this.collection.each(function (screenshot) {
@@ -70,7 +70,8 @@ Instagib.Views.HomeFeed = Backbone.View.extend({
       height: 400,
       width: 450,
       buttons: {
-     "Log In": this.Login.bind(this)
+     "Log In": this.Login.bind(this),
+     "Log in as Guest": this.Guest,
    },
       close: function () {
         $('.new-session-modal').dialog('destroy')
@@ -114,6 +115,33 @@ Instagib.Views.HomeFeed = Backbone.View.extend({
       }
     });
 
+
+  },
+
+  RequireSignIn: function(event) {
+
+    if (Instagib.current_user_id === null) {
+      event.preventDefault();
+      this.SignUpForm({preventDefault: function(){}})
+      $(".validation-tips").text("You must sign up or log in to view screenshots")
+    }
+  },
+
+  Guest: function() {
+    $.ajax({
+      url: '/session/guest',
+      type: "get",
+      dataType: "json",
+      success: function(data){
+        $('.new-session-modal').empty()
+        $('.new-session-modal').append("<p> Successfully Logged In as Guest! Please click <a href=''>here</a> to return </p>")
+      },
+      error: function(){
+
+        var errors = arguments[0].responseText
+        $(".validation-tips").text(errors)
+      }
+    });
 
   }
 

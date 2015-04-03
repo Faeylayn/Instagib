@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root 'staticpages#root'
 
   resource :session
+  get "/session/guest", to: "sessions#guest"
   namespace :api, defaults: { format: :json } do
     get "/search", to: "static_pages#search"
     get "/homefeed", to: "screenshots#homefeed"
