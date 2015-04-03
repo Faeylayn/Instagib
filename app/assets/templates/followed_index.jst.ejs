@@ -3,7 +3,7 @@
 <% followeds.each(function(followed) { %>
   <li>
 
-    <a href="#/users/<%=followed.id%>"><img src="<%= followed.get("picture") %>" alt="" />
+    <a href="#/users/<%=followed.id%>"><img src="<%= followed.get("thumb_url") %>" alt="" />
     <br>
     <%= followed.escape("username") %></a>
     <br>

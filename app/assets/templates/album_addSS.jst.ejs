@@ -3,7 +3,7 @@
     <% if (screenshot.get("album_id") === null) {%>
         <input class="added-ss" type="checkbox" name="added-ss[]" label="<%= screenshot.escape("title") %>" value="<%= screenshot.get("id") %>"><%= screenshot.escape("title") %>
         <br>
-        <img src="<%= screenshot.escape("picture") %>" style="height: 100px; width: 100p;" />
+        <img src="<%= screenshot.escape("thumb_url") %>"/>
         <br>
       <% } %>
   <%  }) %>

@@ -1,11 +1,13 @@
 json.extract!(
     @screenshot,
     :title,
-    :image_url,
     :id,
-    :owner_id,
-    :picture
+    :owner_id
 )
+
+json.medium_url @screenshot.picture.url(:medium)
+
+json.large_url @screenshot.picture.url(:large)
 
 json.comments do
   json.array! @screenshot.comments do |comment|

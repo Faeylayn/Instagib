@@ -1,10 +1,7 @@
 <h1> <%= screenshot.escape("title") %> </h1>
 
-<% if (screenshot.escape("image_url")) {%>
-<img src="<%= screenshot.escape("image_url") %>" alt="" />
-<% } else { %>
-  <img class="ss-img" src="<%=screenshot.get("picture")%>" alt="" />
-  <% } %>
+  <img class="ss-img" src="<%=screenshot.get("medium_url")%>" alt="" />
+
 <br>
 <% if (Instagib.current_user_id === screenshot.get("owner_id")) { %>
   <button class="add-tag">Add a new tag</button>
@@ -13,7 +10,7 @@
     <% if (screenshot.isFavorited(Instagib.current_user_id)) { %>
       <button class="unfav">Remove from Favorites</button>
       <% } else { %>
-        <button class="fav">Add to Favorites</button>        
+        <button class="fav">Add to Favorites</button>
 
   <% }}} %>
 <ul class="tags">

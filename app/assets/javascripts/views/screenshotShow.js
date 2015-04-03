@@ -127,7 +127,7 @@ Instagib.Views.ScreenshotShow = Backbone.View.extend({
   },
 
   CreateModal: function () {
-    this.$el.append("<img class='ss-modal' src=" + this.model.get("picture") + "/>");
+    this.$el.append("<img class='ss-modal' src=" + this.model.get("large_url") + "/>");
     $('.ss-modal').dialog({
       modal: true,
       height: 'auto',

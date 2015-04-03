@@ -2,10 +2,10 @@ json.array! @screenshots do |screenshot|
   json.extract!(
       screenshot,
       :title,
-      :image_url,
       :id,
       :owner_id,
-      :picture,
       :created_at
   )
+
+  json.thumb_url screenshot.picture.url(:thumb)
 end

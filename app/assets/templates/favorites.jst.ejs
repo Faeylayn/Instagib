@@ -3,7 +3,7 @@
 <% favorites.each(function(fav) { %>
   <li>
 
-    <a href="#/screenshots/<%= fav.id %>"></a><img src="<%= fav.get("picture") %>" alt="" />
+    <a href="#/screenshots/<%= fav.id %>"></a><img src="<%= fav.get("thumb_url") %>" alt="" />
     <br>
     <%= fav.escape("title") %>
     <br>

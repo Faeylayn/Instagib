@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
 
   before_validation :ensure_session_token
 
-  has_attached_file :picture, :default_url => ActionController::Base.helpers.image_path("No_Image.jpg")
+  has_attached_file :picture, :styles => { :medium => "300x300>", :thumb => "100x100>", :tiny => "50x50>" }, :default_url => ActionController::Base.helpers.image_path("No_Image.jpg")
   validates_attachment_content_type :picture, :content_type => /\Aimage\/.*\Z/
 
 
