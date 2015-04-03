@@ -7,13 +7,17 @@ Instagib.Views.HomeFeed = Backbone.View.extend({
     "click .submit-sign-up": "SignUp",
   },
 
+  modal: null,
+
   initialize: function () {
     this.listenTo(this.collection, "add", this.cycleFeed)
   },
 
   render: function () {
   this.$el.empty();
-  this.$el.append("<a class='login' href='#'>Login</a> OR <a class='sign-up' href='#'>SIGN UP</a> <br>");
+  if (Instagib.current_user_id === null) {
+    this.$el.append("<a class='login' href='#'>Login</a> OR <a class='sign-up' href='#'>SIGN UP</a> <br>");
+  }
   this.$el.append("<ul class='feed'></ul>");
   this.collection.each(function (screenshot) {
     $(".feed").prepend(JST.home_feed({screenshot: screenshot}))
@@ -40,15 +44,19 @@ Instagib.Views.HomeFeed = Backbone.View.extend({
   SignUpForm: function(event) {
     event.preventDefault();
     this.$el.append(JST.user_new())
-    $(".new-user-modal").dialog({
+    this.model = new Instagib.Models.User()
+    this.modal = $(".new-user-modal").dialog({
       modal: true,
-      height: 400,
+      height: 450,
       width: 450,
+      buttons: {
+     "Create an account": this.SignUp.bind(this)
+   },
       close: function () {
         $('.new-user-modal').dialog('destroy')
         $('.new-user-modal').remove()
-        this.render();
-      }.bind(this),
+
+      },
 
 });
   },
@@ -56,25 +64,40 @@ Instagib.Views.HomeFeed = Backbone.View.extend({
   LoginForm: function(event) {
     event.preventDefault();
     this.$el.append(JST.session_new())
-    $(".new-session-modal").dialog({
+    this.modal = $(".new-session-modal").dialog({
       modal: true,
       height: 400,
       width: 450,
+      buttons: {
+     "Log In": this.Login.bind(this)
+   },
       close: function () {
         $('.new-session-modal').dialog('destroy')
         $('.new-session-modal').remove()
-        this.render();
-      }.bind(this),
+
+      },
 
 });
   },
 
-  SignUp: function(event) {
-    event.preventDefault();
-    var attrs = 
-    var user = new Instagib.Models.User({
+  SignUp: function() {
 
+    var attrs = $("body").find("form").serializeJSON()
+    this.model.save(attrs, {
+      success: function(){
+        $('.new-user-modal').empty()
+        $('.new-user-modal').append("<p> Successfully Logged In! Please click <a href=''>here</a> to return </p>")
+      }.bind(this),
+      error: function (){
+        var errors = arguments[1].responseJSON
+        $(".validation-tips").text(errors)
+      },
     })
+
+  },
+
+  Login: function() {
+
   }
 
 

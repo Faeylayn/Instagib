@@ -18,9 +18,9 @@ class Api::UsersController < ApplicationController
 
     if @user.save
       sign_in(@user)
-      redirect_to root_url
+      render json: @user
     else
-      render "users/new.html.erb"
+      render json: @user.errors.full_messages, :status => :unprocessable_entity
     end
   end
 
@@ -29,7 +29,7 @@ class Api::UsersController < ApplicationController
     if @user.update(user_params)
       render json: @user
     else
-      render json: @user.errors.full_messages
+      render json: @user.errors.full_messages, :status => :unprocessable_entity
     end
   end
 
