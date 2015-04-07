@@ -26,8 +26,9 @@ Instagib.Views.HomeFeed = Backbone.View.extend({
   },
 
   cycleFeed: function () {
+    console.log(this.collection, this.collection.last());
     $(".feed-ss-container").toggleClass("feed-mover")
-    $("feed").prepend(JST.new_home_feed_ss({screenshot: this.collection.last()}))
+    $(".feed").prepend(JST.new_home_feed_ss({screenshot: this.collection.last()}))
     setTimeout(function () {
       $(".feed-new-ss").toggleClass("feed-new-ss-mover")
     }, 1)

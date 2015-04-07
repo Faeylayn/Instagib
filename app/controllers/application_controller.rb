@@ -16,9 +16,9 @@ class ApplicationController < ActionController::Base
   end
 
   def push_ss(ss)
-    picture_url = ss.picture.url
+    thumb_url = ss.picture.url(:thumb)
     hash = JSON.parse(ss.to_json)
-    hash["picture"] = picture_url
+    hash["thumb_url"] = thumb_url
     new_json = hash.to_json
 
     Pusher.trigger('screenshots', 'new_ss', new_json)
