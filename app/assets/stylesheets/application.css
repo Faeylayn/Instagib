@@ -73,23 +73,24 @@
  }
 
  .logo {
-   font-size: 48px;
+   float: left;
+   font-size: 36px;
    text-align: center;
    font-weight: bold;
    text-shadow: 1px 1px 2px #000;
-
+   padding: 5px;
  }
 
  .current-user {
-   float: left
+   float: right;
+   padding: 5px;
+   border: 1px solid #aaa;
  }
 
- .logout {
-   float: right;
-   background: -webkit-linear-gradient(#aaa, #ddd, #fff, #ccc, #aaa);
-   padding: 20px;
-   color: black;
- }
+ .current-user:hover {
+   background: -webkit-linear-gradient(#000, #ccc, #ddd, #ccc, #000);
+}
+
 
  button {
    background: -webkit-linear-gradient(#aaa, #ddd, #fff, #ccc, #aaa);
@@ -114,17 +115,53 @@
   color: #000
 }
 
+.root-buttons img {
+  padding: 0;
+  height: 40px;
+
+}
+
+.user-drop-down {
+  display: none;
+  width: 120px;
+  border: 1px solid #aaa;
+}
+
+.current-user:hover .user-drop-down {
+  position: absolute;
+  display: block;
+}
+
+.user-drop-down li {
+  background: -webkit-linear-gradient(#aaa, #ddd, #fff, #ccc, #aaa);
+  border: 1px solid #000;
+  height: 20px;
+  text-align: center;
+}
+
+.user-drop-down li a {
+  padding: 20px;
+
+}
+.logout-button {
+  background: inherit;
+  border: none;
+  padding: inherit;
+}
+
  /* --- NAVBAR --- */
 
  .root-header {
    clear: both;
+   width: 900px;
+   margin: auto;
    background: -webkit-linear-gradient(#aaa, #ddd, #fff, #ccc, #aaa);
+   color: #000;
  }
 
  .root-navbar {
-   width: 600px;
-   margin: auto;
-
+   float: left;
+   width: 300px;
    color: #000
  }
 
@@ -134,15 +171,15 @@
 
  }
 
- .root-buttons li {
+ .root-buttons a {
    float: left;
-   width: 120px;
+   width: 60px;
    border: 1px solid #aaa;
-   padding: 10px;
+
    text-align: center;
  }
 
- .root-buttons li:hover {
+ .root-buttons a:hover {
    background: -webkit-linear-gradient(#000, #ccc, #ddd, #ccc, #000);
 }
 
@@ -157,7 +194,7 @@
  }
 
  .feed-cont-title {
-   padding: 40px 0 0 0;
+   margin: 40px 0 0 0;
    text-align: center;
  }
 

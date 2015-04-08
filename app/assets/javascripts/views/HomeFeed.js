@@ -16,9 +16,9 @@ Instagib.Views.HomeFeed = Backbone.View.extend({
   render: function () {
   this.$el.empty();
   if (Instagib.current_user_id === null) {
-    this.$el.append("<a class='login' href='#'>Login</a> OR <a class='sign-up' href='#'>SIGN UP</a> <br> <h2 class='feed-cont-title'> Newest Screenshots </h2>");
+    this.$el.append("<a class='login' href='#'>Login</a> OR <a class='sign-up' href='#'>SIGN UP</a> <br> ");
   }
-  this.$el.append("<ul class='feed'></ul>");
+  this.$el.append("<h2 class='feed-cont-title'> Newest Screenshots </h2><br><ul class='feed'></ul>");
   this.collection.each(function (screenshot) {
     $(".feed").prepend(JST.home_feed({screenshot: screenshot}))
   }.bind(this))
@@ -26,7 +26,6 @@ Instagib.Views.HomeFeed = Backbone.View.extend({
   },
 
   cycleFeed: function () {
-    console.log(this.collection, this.collection.last());
     $(".feed-ss-container").toggleClass("feed-mover")
     $(".feed").prepend(JST.new_home_feed_ss({screenshot: this.collection.last()}))
     setTimeout(function () {

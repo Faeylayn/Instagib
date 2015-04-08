@@ -12,42 +12,44 @@
 </script>
 </head>
 <body class="group">
-  <a href="#"><h1 class="logo">INSTAGIB</h1></a>
+
+
  <% if current_user %>
  <script>
    Instagib.current_user_id = <%= current_user.id %>
  </script>
- <span class="current-user">
-You are signed in as <a href="#/users/<%=current_user.id%>"><%= current_user.username %>
-<img src="<%=current_user.picture.url%>" style="height: 50px" alt="" />
-</a>
-</span>
-
-<form class="logout" action="<%= session_url %>" method="post">
-  <input type="hidden" name="_method" value="delete">
-  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-  <input type="submit" name="logout" value="Logout">
-</form>
-  <% else %>
-  <script>
-    Instagib.current_user_id = null
-  </script>
-
- <% end %>
-
-
-
- <% if current_user %>
  <header class="root-header group">
    <nav class="root-navbar group">
      <ul class="root-buttons group">
-       <li> <a href="#/search">Search</a> </li>
-       <li> <a href="#/users/<%=current_user.id%>" >Profile</a> </li>
-       <li> <a href="#/users/<%=current_user.id%>/albums">Your Albums</a> </li>
-       <li> <a href="#/screenshots/new"> New Screenshot </a> </li>
+       <li> <a class="search-button" href="#/search"><img src="../images/magnifying_glass_T.png" alt="Search" /></a> </li>
+       <li> <a href="#/users/<%=current_user.id%>/albums"><img src="../images/Photos-icon.png" alt="" /></a> </li>
+       <li> <a href="#/screenshots/new"> <img src="../images/camera.png" alt="New Screenshot" /> </a> </li>
      </ul>
+
    </nav>
+   <a href="#"><span class="logo">INSTAGIB</span></a>
+   <span class="current-user">
+ <a href="#/users/<%=current_user.id%>"><%= current_user.username %>
+  <img src="<%=current_user.picture.url%>" style="height: 30px" alt="" />
+  </a>
+  <ul class="user-drop-down">
+    <li>  <a href="#/users/<%=current_user.id%>"> Profile </a> </li>
+    <li>  <form class="logout" action="<%= session_url %>" method="post">
+       <input type="hidden" name="_method" value="delete">
+       <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+       <input class="logout-button" type="submit" name="logout" value="Logout">
+     </form> </li>
+  </ul>
+  </span>
+
  </header>
+
+
+ <% else %>
+ <script>
+   Instagib.current_user_id = null
+ </script>
+
  <% end %>
 
 <%= yield %>

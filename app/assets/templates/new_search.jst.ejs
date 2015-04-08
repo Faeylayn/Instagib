@@ -5,6 +5,10 @@
 </label>
 
 <ul>
+  <% if (results.length === 0) {%>
+    <li>There are no results matching that query</li>
+    <% } %>
+
   <% results.each(function(result) { %>
     <li>
       <% if (result instanceof Instagib.Models.User) {%>
