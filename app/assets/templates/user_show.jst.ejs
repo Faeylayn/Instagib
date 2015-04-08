@@ -11,13 +11,16 @@
     <% } } }%>
 
 <br>
+
 <img class="avatar" src="<%= user.get("medium_url") %>" alt="" />
 <br>
-<a href="#/users/<%=user.id%>/followers" class="followers">See Followers</a>
+<ul class="user-links">
+<li><a href="#/users/<%=user.id%>/followers" class="followers">See Followers</a></li>
 
-<br>
 
-<a href="#/users/<%=user.id%>/followeds" class="followed">See Followed</a>
 
-<br>
-<a class="favorites" href="#/users/<%=user.id%>/favorites">See Favorite Screenshots!</a>
+<li><a href="#/users/<%=user.id%>/followeds" class="followed">See Followed</a></li>
+
+
+<li><a class="favorites" href="#/users/<%=user.id%>/favorites">See Favorite Screenshots!</a></li>
+</ul>

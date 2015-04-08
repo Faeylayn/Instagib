@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   resource :session
   get "/session/guest", to: "sessions#guest"
+  get "/session/destroy", to: "sessions#destroy"
   namespace :api, defaults: { format: :json } do
     get "/search", to: "static_pages#search"
     get "/homefeed", to: "screenshots#homefeed"

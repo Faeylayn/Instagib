@@ -34,11 +34,7 @@
   </a>
   <ul class="user-drop-down">
     <li>  <a href="#/users/<%=current_user.id%>"> Profile </a> </li>
-    <li>  <form class="logout" action="<%= session_url %>" method="post">
-       <input type="hidden" name="_method" value="delete">
-       <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-       <input class="logout-button" type="submit" name="logout" value="Logout">
-     </form> </li>
+    <li>  <a href="/session/destroy"> Logout </a> </li>
   </ul>
   </span>
 

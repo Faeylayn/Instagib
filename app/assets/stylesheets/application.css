@@ -75,7 +75,7 @@
  .logo {
    float: left;
    font-size: 36px;
-   text-align: center;
+   margin: auto;
    font-weight: bold;
    text-shadow: 1px 1px 2px #000;
    padding: 5px;
@@ -83,8 +83,11 @@
 
  .current-user {
    float: right;
+   position: relative;
    padding: 5px;
    border: 1px solid #aaa;
+   width: 100px;
+   text-align: center
  }
 
  .current-user:hover {
@@ -123,8 +126,10 @@
 
 .user-drop-down {
   display: none;
-  width: 120px;
   border: 1px solid #aaa;
+  right: 5px;
+  top: 45px;
+
 }
 
 .current-user:hover .user-drop-down {
@@ -137,12 +142,18 @@
   border: 1px solid #000;
   height: 20px;
   text-align: center;
-}
 
-.user-drop-down li a {
-  padding: 20px;
 
 }
+
+.user-drop-down a {
+  padding: 0 30px;
+}
+
+.user-drop-down li:hover {
+  background: -webkit-linear-gradient(#000, #ccc, #ddd, #ccc, #000);
+}
+
 .logout-button {
   background: inherit;
   border: none;
@@ -316,6 +327,28 @@ button.add-ss {
 
 .avatar {
   height: 200px;
+  padding: 20px;
+  float: left;
+}
+
+.username {
+  font-size: 36px;
+  padding: 20px;
+
+}
+
+.user-links {
+  float: right;
+}
+
+.user-links li {
+  padding: 20px;
+}
+
+.user-links a {
+  background: -webkit-linear-gradient(#aaa, #ddd, #fff, #ccc, #aaa);
+  color: #000;
+  padding: 20px;
 }
 
 
