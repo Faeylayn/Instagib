@@ -35,6 +35,7 @@
   <ul class="user-drop-down">
     <li>  <a href="#/users/<%=current_user.id%>"> Profile </a> </li>
     <li>  <a href="/session/destroy"> Logout </a> </li>
+    <li> <a href="#/messages"> Messages <%= current_user.mail.where(received: false).count %> New</a> </li>
   </ul>
   </span>
 

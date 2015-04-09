@@ -12,8 +12,8 @@ Instagib.Router = Backbone.Router.extend({
     "users/:id/followers": "FollowersIndex",
     "users/:id/followeds": "FollowedsIndex",
     "users/:id/favorites": "UserFavorites",
-    "users/:id/messages": "UserMessages"
-
+    "messages": "UserMessages",
+    "messages/:id": "MessageShow"
   },
 
   HomeFeed: function () {
@@ -155,6 +155,41 @@ Instagib.Router = Backbone.Router.extend({
         this._SwapView(view);
       }.bind(this)
     })
+  },
+
+  UserMessages: function () {
+    var user = new Instagib.Models.User({id: Instagib.current_user_id})
+    user.fetch({
+      success: function () {
+        var view = new Instagib.Views.Inbox({
+          model: user,
+          collection: new Instagib.Collections.Messages()
+        })
+        view.render()
+        $(".display").html(view.$el)
+        this._SwapView(view);
+      }.bind(this)
+    })
+  },
+
+  MessageShow: function (id) {
+    var message = new Instagib.Models.Message({id: id})
+    message.fetch({
+      success: function () {
+        if (Instagib.current_user_id != message.get("sender_id") || Instagib.current_user_id != message.get('receiver_id')) {
+          Backbone.history.navigate("#", {trigger: true})
+          alert("You are not the sender or receiver of that Message")
+        } else {
+        var view = new Instagib.Views.MessageShow({
+          model: message
+        })
+        view.render()
+        $(".display").html(view.$el)
+        this._SwapView(view);
+      }
+      }.bind(this)
+    })
+
   },
 
 

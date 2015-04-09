@@ -41,21 +41,3 @@ json.favorites do
 
   end
 end
-
-json.new_mail do
-  json.array! @user.mail.where(:received => false) do |mail|
-    json.extract!(mail, :id, :title)
-    json.sender do
-      json.extract!(mail.sender, :id, :username)
-    end
-  end
-end
-
-json.mail do
-  json.array! @user.mail do |mail|
-    json.extract!(mail, :id, :title)
-    json.sender do
-      json.extract!(mail.sender, :id, :username)
-    end
-  end
-end

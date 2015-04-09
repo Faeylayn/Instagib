@@ -127,9 +127,9 @@
 .user-drop-down {
   display: none;
   border: 1px solid #aaa;
-  right: 5px;
   top: 45px;
-
+  right: 0;
+  width: 150px;
 }
 
 .current-user:hover .user-drop-down {
@@ -147,7 +147,7 @@
 }
 
 .user-drop-down a {
-  padding: 0 30px;
+  padding: 0 10px;
 }
 
 .user-drop-down li:hover {

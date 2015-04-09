@@ -1,5 +1,12 @@
 class Api::MessagesController < ApplicationController
 
+  def index
+    @messages = current_user.mail
+  end
+
+  def show
+    @message = Message.find(params[:id])
+  end
 
   def create
       @message =
