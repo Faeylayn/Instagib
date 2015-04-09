@@ -47,5 +47,11 @@ Instagib.Models.User = Backbone.Model.extend({
       this.favorites().set(payload.favorites)
     }
     return payload
-  }
+  },
+
+  toJSON: function () {
+    return {
+      user: _.clone(this.attributes)
+    };
+  },
 })

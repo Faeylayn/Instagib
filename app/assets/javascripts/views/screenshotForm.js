@@ -26,6 +26,7 @@ Instagib.Views.ScreenshotForm = Backbone.View.extend({
   },
 
   changePicture: function (event) {
+
     var file = event.currentTarget.files[0];
 
     var fileReader = new FileReader();

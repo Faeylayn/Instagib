@@ -3,11 +3,12 @@ Instagib.Views.HomeFeed = Backbone.View.extend({
     "click .feed-ss": "RequireSignIn",
     "click .sign-up": "SignUpForm",
     "click .login": "LoginForm",
-    "click .submit-login": "Login",
-    "click .submit-sign-up": "SignUp",
+    "change .avatar-input": "changePicture",
   },
 
   modal: null,
+
+  tagName: "div class='feed-view-tag'",
 
   initialize: function () {
     this.listenTo(this.collection, "add", this.cycleFeed)
@@ -53,12 +54,15 @@ Instagib.Views.HomeFeed = Backbone.View.extend({
      "Create an account": this.SignUp.bind(this)
    },
       close: function () {
+        this.$el = $("feed-view-tag")
         $('.new-user-modal').dialog('destroy')
         $('.new-user-modal').remove()
 
       },
 
 });
+  this.$el = $(".new-user-modal")
+  this.delegateEvents(this.events);
   },
 
   LoginForm: function(event) {
@@ -86,6 +90,7 @@ Instagib.Views.HomeFeed = Backbone.View.extend({
         var attrs = $("body").find("form").serializeJSON()
         this.model.save(attrs, {
           success: function(){
+            console.log(this.model);
             $('.new-user-modal').empty()
             $('.new-user-modal').append("<p> Successfully Logged In! Please click <a href=''>here</a> to return </p>")
           }.bind(this),
@@ -143,7 +148,20 @@ Instagib.Views.HomeFeed = Backbone.View.extend({
       }
     });
 
-  }
+  },
+
+  changePicture: function (event) {
+    var file = event.currentTarget.files[0];
+
+    var fileReader = new FileReader();
+
+    var that = this;
+    fileReader.onloadend = function () {
+      that.model.set("picture", fileReader.result);
+    };
+
+    fileReader.readAsDataURL(file);
+  },
 
 
 })

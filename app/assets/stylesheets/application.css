@@ -86,7 +86,7 @@
    position: relative;
    padding: 5px;
    border: 1px solid #aaa;
-   width: 100px;
+   min-width: 100px;
    text-align: center
  }
 
@@ -357,7 +357,35 @@ button.add-ss {
 /* --- ALBUMS-INDEX --- */
 
 /* --- USER-FOLLOWERS --- */
+.followers-title {
+  font-size: 36px;
+  padding: 20px;
+  text-align: center;
+}
+
+.followers-list-item {
+  float: left;
+  padding: 20px;
+}
+
+.followers-picture {
+  height: 100px;
+}
+
 
 /* --- USER-FOLLOWEDS --- */
+.followeds-title {
+  font-size: 36px;
+  padding: 20px;
+  text-align: center;
+}
+
+.followeds-list-item {
+  float: left;
+}
+
+.followeds-picture {
+  height: 100px;
+}
 
 /* --- USER-FAVORITES --- */

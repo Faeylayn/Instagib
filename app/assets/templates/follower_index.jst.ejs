@@ -1,9 +1,9 @@
-<h1> <%= user.escape("username") %>'s Followers </h1>
+<h1 class="followers-title"> <%= user.escape("username") %>'s Followers </h1>
 <ul>
 <% followers.each(function(follower) { %>
-  <li>
+  <li class="followers-list-item">
 
-    <a href="#/users/<%=follower.id%>"><img src="<%= follower.get("thumb_url") %>" alt="" />
+    <a href="#/users/<%=follower.id%>"><img class="followers-picture" src="<%= follower.get("thumb_url") %>" alt="" />
     <br>
     <%= follower.escape("username") %></a>
     <br>
