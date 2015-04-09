@@ -1,0 +1,24 @@
+<h1>Compose Message</h1>
+
+<form>
+  <label>Title
+  <input type="text" name="title" value="">
+</label>
+  <br>
+
+  <label>Body
+  <textarea name="body"></textarea>
+</label>
+  <br>
+
+  <select name="receiver_id">
+    <% collection.each(function(followed) { %>
+      <option value="<%= followed.get('id') %>"> <%= followed.escape('username') %> </option>
+
+    <%  }) %>
+
+  </select>
+
+  <input class="submit-message" type="submit" name="submit" value="Submit">
+
+</form>

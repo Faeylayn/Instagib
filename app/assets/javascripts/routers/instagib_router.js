@@ -13,6 +13,7 @@ Instagib.Router = Backbone.Router.extend({
     "users/:id/followeds": "FollowedsIndex",
     "users/:id/favorites": "UserFavorites",
     "messages": "UserMessages",
+    "messages/new": "newMessage",
     "messages/:id": "MessageShow"
   },
 
@@ -192,6 +193,16 @@ Instagib.Router = Backbone.Router.extend({
 
   },
 
+  newMessage: function () {
+    var view = new Instagib.Views.NewMessage({
+      model: new Instagib.Models.Message({
+        sender_id: Instagib.current_user_id
+      })
+    })
+    view.render()
+    $(".display").html(view.$el)
+    this._SwapView(view);
+  },
 
 
   _SwapView: function (newView) {

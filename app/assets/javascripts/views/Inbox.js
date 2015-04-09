@@ -1,6 +1,7 @@
 Instagib.Views.Inbox = Backbone.View.extend({
 
 
+
   render: function () {
 
     this.collection.fetch({
@@ -9,5 +10,5 @@ Instagib.Views.Inbox = Backbone.View.extend({
       }.bind(this)
     })
 
-  }
+  },
 })
