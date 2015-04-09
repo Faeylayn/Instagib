@@ -1,9 +1,9 @@
-<h1> <%= user.escape("username") %>'s Favorite SS's </h1>
+<h1 class="favorites-title"> <%= user.escape("username") %>'s Favorite Screenshots </h1>
 <ul>
 <% favorites.each(function(fav) { %>
-  <li>
+  <li class="favorites-list-item">
 
-    <a href="#/screenshots/<%= fav.id %>"></a><img src="<%= fav.get("thumb_url") %>" alt="" />
+    <a href="#/screenshots/<%= fav.id %>"></a><img class="favorites-picture" src="<%= fav.get("thumb_url") %>" alt="" />
     <br>
     <%= fav.escape("title") %>
     <br>

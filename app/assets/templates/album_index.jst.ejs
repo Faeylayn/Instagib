@@ -1,15 +1,15 @@
-<h1><%= user.escape("username") %>'s Albums!</h1>
+<h1 class="album-index-title"><%= user.escape("username") %>'s Albums!</h1>
 
 <ul>
 <% albums.each(function (album) { %>
 
-  <li><a class="album" data-id="<%= album.id %>" href="#/albums/<%=album.get("id")%>"><%=album.escape('title')%></a></li>
+  <li class="album-index-link"><a class="album" data-id="<%= album.id %>" href="#/albums/<%=album.get("id")%>"><%=album.escape('title')%></a></li>
 
   <% }) %>
 
 </ul>
 
 <% if (Instagib.current_user_id === user.id) { %>
-  <a href="#/albums/new"> Add A New Album! </a>
+  <button class="add-album-form"> Add A New Album! </button>
 
 <% } %>

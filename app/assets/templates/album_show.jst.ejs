@@ -2,7 +2,7 @@
 
 
 
-<h1> <%= album.escape("title") %> </h1>
+<h1 class="album-show-title"> <%= album.escape("title") %> </h1>
 
 <% album.screenshots().each(function (screenshot) { %>
   <section class="album-ss-container">
@@ -22,5 +22,5 @@
 <br>
 <br>
 <% if (Instagib.current_user_id === album.get("owner_id") && album.other_ss()) {%>
-<button class="add-ss">Add your screenshots to this album<button>
+<button class="add-ss">Add your screenshots to this album</button>
 <% } %>

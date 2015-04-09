@@ -260,7 +260,12 @@
 .album-ss-popout {
   height: 200px;
   display: none;
+}
 
+.album-show-title {
+  font-size: 36px;
+  padding: 20px;
+  text-align: center;
 }
 
 .album-ss:hover .album-ss-popout {
@@ -354,7 +359,24 @@ button.add-ss {
 
 /* --- SEARCH --- */
 
+.search-title {
+  font-size: 36px;
+  padding: 20px;
+  text-align: center;
+}
+
 /* --- ALBUMS-INDEX --- */
+
+.album-index-title {
+  font-size: 36px;
+  padding: 20px;
+  text-align: center;
+}
+
+.album-index-link {
+  padding: 10px;
+}
+
 
 /* --- USER-FOLLOWERS --- */
 .followers-title {
@@ -389,3 +411,16 @@ button.add-ss {
 }
 
 /* --- USER-FAVORITES --- */
+.favorites-title {
+  font-size: 36px;
+  padding: 20px;
+  text-align: center;
+}
+
+.favorites-list-item {
+  float: left;
+}
+
+.favorites-picture {
+  height: 100px;
+}
