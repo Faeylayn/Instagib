@@ -1,0 +1,15 @@
+<ul>
+  <li> Title: <%= message.escape("title") %></li>
+  <li> From: <%= message.escape("sender") %></li>
+  <li> To: <%= message.escape("receiver") %> </li>
+  <li> At: <%= message.get("created_at") %> </li>
+</ul>
+
+<p> Message:
+  <%= message.escape('body') %>
+</p>
+
+<% if (Instagib.current_user_id === message.get("receiver_id")) { %>
+  <button class="reply-button"> Reply to this message </button>
+
+  <% } %>

@@ -8,6 +8,15 @@ class Api::MessagesController < ApplicationController
     @message = Message.find(params[:id])
   end
 
+  def update
+    message = Message.find(params[:id])
+    if message.update(:received => true)
+      render json: message
+    else
+      render json: message.errors.full_messages
+    end
+  end
+
   def create
       @message =
       if @message.save

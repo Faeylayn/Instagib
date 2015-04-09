@@ -176,7 +176,7 @@ Instagib.Router = Backbone.Router.extend({
     var message = new Instagib.Models.Message({id: id})
     message.fetch({
       success: function () {
-        if (Instagib.current_user_id != message.get("sender_id") || Instagib.current_user_id != message.get('receiver_id')) {
+        if (Instagib.current_user_id != message.get("sender_id") && Instagib.current_user_id != message.get('receiver_id')) {
           Backbone.history.navigate("#", {trigger: true})
           alert("You are not the sender or receiver of that Message")
         } else {
