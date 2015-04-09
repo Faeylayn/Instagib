@@ -1,10 +1,10 @@
 Instagib.Views.NewMessage = Backbone.View.extend({
 
   events: {
-
+    "click .submit-message": "SendMessage"
   },
 
-  render: function () {
+  render: function() {
 
     var user = new Instagib.Models.User({id: Instagib.current_user_id})
     user.fetch({
@@ -15,4 +15,18 @@ Instagib.Views.NewMessage = Backbone.View.extend({
       }.bind(this)
     })
   },
+
+  SendMessage: function(event) {
+    event.preventDefault();
+    var attrs = $('body').find("form").serializeJSON()
+    this.model.save(attrs, {
+      success: function() {
+        Backbone.history.navigate("#/messages", {trigger: true})
+      },
+      error: function() {
+        var errors = arguments[1].responseJSON
+        $(".errors-display").text(errors)
+      }
+    })
+  }
 })

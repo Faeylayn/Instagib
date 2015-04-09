@@ -18,18 +18,23 @@ class Api::MessagesController < ApplicationController
   end
 
   def create
-      @message =
+      @message = Message.new(message_params)
+      @message.received = false
       if @message.save
         render json: @message
       else
-        render json: @message.errors.full_messages
+        render json: @message.errors.full_messages, :status => :unprocessable_entity
       end
     end
 
   def destroy
-   @tagging = Tagging.find_by(:tag_id => params[:id], :ss_id => params[:ss_id])
-   @tagging.destroy!
-   render json: @tagging
+
+  end
+
+  private
+
+  def message_params
+    params.require(:message).permit(:sender_id, :receiver_id, :title, :body)
   end
 
 end
