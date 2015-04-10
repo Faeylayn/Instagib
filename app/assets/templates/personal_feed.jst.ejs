@@ -5,7 +5,9 @@
 
       <li class="personalfeed-ss-container">
 
-        <a href="#/users/<%= screenshot.get("owner_id") %>"><%= screenshot.escape("owner") %></a> Posted: <span class="personalfeed-ss-title"> <%= screenshot.escape("title") %> </span>
+        <a href="#/users/<%= screenshot.get("owner_id") %>"><%= screenshot.escape("owner") %></a> Posted:
+        <br>
+        <span class="personalfeed-ss-title"> <%= screenshot.escape("title") %> </span>
         <br>
       <a class="personalfeed-ss" data-id="<%=screenshot.get('id')%>" href="#/screenshots/<%=screenshot.get('id')%>"><img class="personalfeed-ss" src="<%= screenshot.get("thumb_url") %>" alt="" />
         </a>

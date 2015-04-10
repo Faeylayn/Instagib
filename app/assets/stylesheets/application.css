@@ -66,7 +66,7 @@
  /* --- SITEWIDE --- */
 
  body {
-   background: -webkit-linear-gradient(left, #000, #000, #aaa, #bbb, #aaa, #000, #000);
+   background: -webkit-linear-gradient(left, #252d40, #252d40, #384057, #3f4b63, #374e82, #3f4b63, #384057, #252d40, #252d40);
    /*background-image: url("../images/metal.jpg");*/
    color: #fff;
 
@@ -169,6 +169,11 @@
 
  /* --- NAVBAR --- */
 
+.header-top {
+  background: -webkit-linear-gradient(#aaa, #ddd, #fff, #ccc, #aaa);
+  width: 100%
+}
+
  .root-header {
    clear: both;
    width: 900px;
@@ -268,12 +273,19 @@
 }
 
 .personalfeed li {
-  width: 100px;
-  margin: 0 125px;
+  width: 350px;
+  margin: 10px 125px;
+  background: #384057;
+  border: 5px solid #eee;
 }
 
 .personalfeed-ss-title {
   padding: 10px
+}
+
+.personalfeed-ss {
+  position: relative;
+  left: 10px;
 }
 
 
