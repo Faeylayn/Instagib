@@ -335,6 +335,12 @@ button.add-ss {
   list-style: square inside
 }
 
+.screenshot-new-title {
+  font-size: 36px;
+  padding: 20px;
+  text-align: center;
+}
+
 /* --- USER-SHOW --- */
 
 .avatar {
