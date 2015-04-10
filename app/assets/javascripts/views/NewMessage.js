@@ -11,7 +11,7 @@ Instagib.Views.NewMessage = Backbone.View.extend({
       success: function () {
         this.collection = user.followers()
         this.collection.add(user.followeds())
-        this.$el.html(JST.message_form({collection: this.collection}));
+        this.$el.html(JST.message_form({user: user}));
       }.bind(this)
     })
   },

@@ -12,10 +12,18 @@
   <br>
 
   <select name="receiver_id">
-    <% collection.each(function(followed) { %>
+    <% user.followeds().each(function(followed) { %>
       <option value="<%= followed.get('id') %>"> <%= followed.escape('username') %> </option>
 
     <%  }) %>
+
+    <% user.followers().each(function(follower) { %>
+      <option value="<%= follower.get('id') %>"> <%= follower.escape('username') %> </option>
+
+    <%  }) %>
+
+
+
 
   </select>
 

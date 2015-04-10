@@ -1,11 +1,12 @@
 <h1 class="inbox-title"> <%= user.escape("username") %>'s Messages </h1>
 
 <ul class="inbox-index">
+  <li>Sender(link) - Message(click to view)</li>
   <% if (messages.length === 0) { %>
     <li>There are no messages.</li>
     <% } %>
   <% messages.each(function (message) { %>
-    <li class="message-container"> <a href="#/users/<%= message.get('sender_id') %>"><%= message.get('sender') %></a> - <a href="#/messages/<%= message.get('id') %>"><%= message.escape('title') %> </a></li>
+    <li class="message-container <% if (!message.get('received')){ %> unviewed-message <% } %>"> <a href="#/users/<%= message.get('sender_id') %>"><%= message.get('sender') %></a> - <a href="#/messages/<%= message.get('id') %>"><%= message.escape('title') %> </a></li>
 
 
     <% }) %>
