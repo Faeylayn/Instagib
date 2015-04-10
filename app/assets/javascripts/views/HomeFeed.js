@@ -23,7 +23,14 @@ Instagib.Views.HomeFeed = Backbone.View.extend({
   this.collection.each(function (screenshot) {
     $(".feed").prepend(JST.home_feed({screenshot: screenshot}))
   }.bind(this))
-
+  if (Instagib.current_user_id) {
+    this.personalfeed = new Instagib.Collections.personalFeed()
+    this.personalfeed.fetch({
+      success: function () {
+        this.$el.append(JST.personal_feed({screenshots: this.personalfeed}))
+      }.bind(this)
+    })
+  }
   },
 
   cycleFeed: function () {

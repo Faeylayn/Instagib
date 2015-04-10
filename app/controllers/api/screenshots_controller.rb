@@ -12,6 +12,14 @@ class Api::ScreenshotsController < ApplicationController
       render :index
     end
 
+    def personalFeed
+      @screenshots = current_user.screenshots.order(created_at: :desc).limit(20)
+      current_user.followeds.each do |followed|
+        @screenshots.concat(followed.screenshots.order(created_at: :desc).limit(5))
+      end
+      render :feed
+    end
+
     def new
       @image = Screenshot.new
     end

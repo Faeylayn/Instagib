@@ -255,6 +255,28 @@
   transition: left 1000ms linear;
 }
 
+
+.personalfeed {
+  width: 400px;
+}
+
+.personalfeed-title{
+  clear: both;
+  text-align: center;
+  font-size: 24px;
+  padding: 20px;
+}
+
+.personalfeed li {
+  width: 100px;
+  margin: 0 125px;
+}
+
+.personalfeed-ss-title {
+  padding: 10px
+}
+
+
 /* --- ALBUM-SHOW --- */
 
 .album-ss {
